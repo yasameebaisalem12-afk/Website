@@ -1,0 +1,1349 @@
+
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>การใช้งานเทคโนโลยีสารสนเทศอย่างปลอดภัย</title>
+
+<style>
+
+/* =====================================================
+   RESET
+===================================================== */
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:"Tahoma","Arial",sans-serif;
+    color:#203653;
+    line-height:1.7;
+    min-height:100vh;
+
+    /* ===== รูปพื้นหลัง ===== */
+    background-image:
+        linear-gradient(
+            135deg,
+            rgba(237,247,255,.90),
+            rgba(224,239,255,.78)
+        ),
+        url("รูป1.PNG");
+
+    background-size:cover;
+    background-position:center;
+    background-attachment:fixed;
+    background-repeat:no-repeat;
+}
+
+
+/* =====================================================
+   CONTAINER
+===================================================== */
+
+.container{
+    width:min(1180px,92%);
+    margin:auto;
+}
+
+
+/* =====================================================
+   HEADER
+===================================================== */
+
+header{
+    position:sticky;
+    top:0;
+    z-index:1000;
+
+    background:rgba(255,255,255,.82);
+    backdrop-filter:blur(18px);
+    -webkit-backdrop-filter:blur(18px);
+
+    border-bottom:1px solid rgba(255,255,255,.8);
+
+    box-shadow:
+        0 5px 25px rgba(31,86,140,.10);
+}
+
+.top{
+    min-height:76px;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    gap:25px;
+}
+
+
+/* LOGO */
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:10px;
+
+    color:#1261ad;
+    text-decoration:none;
+
+    font-size:19px;
+    font-weight:bold;
+
+    white-space:nowrap;
+}
+
+.logo-icon{
+    width:42px;
+    height:42px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    border-radius:13px;
+
+    background:linear-gradient(
+        135deg,
+        #2378d4,
+        #55b9f5
+    );
+
+    box-shadow:
+        0 7px 18px rgba(35,120,212,.25);
+
+    font-size:22px;
+}
+
+
+/* NAVIGATION */
+
+nav{
+    display:flex;
+    align-items:center;
+    justify-content:flex-end;
+
+    gap:4px;
+    flex-wrap:wrap;
+}
+
+nav a{
+    position:relative;
+
+    padding:9px 12px;
+
+    border-radius:12px;
+
+    color:#50647d;
+    text-decoration:none;
+
+    font-size:13px;
+    font-weight:500;
+
+    transition:.25s ease;
+}
+
+nav a:hover{
+    color:#1768b8;
+    background:#eaf5ff;
+}
+
+nav a.active{
+    color:#fff;
+
+    background:linear-gradient(
+        135deg,
+        #176ac0,
+        #4a9de3
+    );
+
+    box-shadow:
+        0 5px 15px rgba(35,120,212,.25);
+}
+
+
+/* =====================================================
+   HERO
+===================================================== */
+
+.hero{
+    position:relative;
+
+    min-height:650px;
+
+    display:flex;
+    align-items:center;
+
+    overflow:hidden;
+
+    padding:80px 0;
+}
+
+
+/* Decorative circles */
+
+.hero::before{
+    content:"";
+
+    position:absolute;
+
+    width:420px;
+    height:420px;
+
+    border-radius:50%;
+
+    background:rgba(105,190,255,.20);
+
+    top:-150px;
+    left:-150px;
+
+    filter:blur(2px);
+}
+
+.hero::after{
+    content:"";
+
+    position:absolute;
+
+    width:500px;
+    height:500px;
+
+    border-radius:50%;
+
+    background:rgba(81,143,231,.13);
+
+    right:-180px;
+    bottom:-250px;
+}
+
+
+/* HERO GRID */
+
+.hero-grid{
+    position:relative;
+    z-index:2;
+
+    display:grid;
+
+    grid-template-columns:
+        minmax(0,1.25fr)
+        minmax(330px,.75fr);
+
+    gap:70px;
+
+    align-items:center;
+}
+
+
+/* LEFT SIDE */
+
+.hero-content{
+    max-width:700px;
+}
+
+.badge{
+    display:inline-flex;
+    align-items:center;
+    gap:7px;
+
+    padding:7px 16px;
+
+    border-radius:50px;
+
+    color:#1767b5;
+
+    background:rgba(255,255,255,.75);
+
+    border:1px solid rgba(255,255,255,.9);
+
+    box-shadow:
+        0 5px 18px rgba(31,88,140,.08);
+
+    font-size:14px;
+    font-weight:bold;
+}
+
+.hero h1{
+    margin-top:20px;
+    margin-bottom:20px;
+
+    font-size:clamp(38px,5vw,64px);
+
+    line-height:1.15;
+
+    letter-spacing:-1px;
+
+    color:#123d6c;
+
+    text-shadow:
+        0 3px 10px rgba(24,74,117,.08);
+}
+
+.hero h1 span{
+    color:#2581d2;
+}
+
+.hero-description{
+    max-width:650px;
+
+    font-size:18px;
+
+    color:#526a84;
+
+    margin-bottom:30px;
+}
+
+
+/* BUTTONS */
+
+.actions{
+    display:flex;
+
+    gap:13px;
+
+    flex-wrap:wrap;
+}
+
+.btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+
+    gap:8px;
+
+    min-height:48px;
+
+    padding:12px 21px;
+
+    border-radius:13px;
+
+    text-decoration:none;
+
+    font-weight:bold;
+
+    transition:.25s ease;
+}
+
+.btn:hover{
+    transform:translateY(-3px);
+}
+
+.primary{
+    color:white;
+
+    background:
+        linear-gradient(
+            135deg,
+            #176ac1,
+            #45a4eb
+        );
+
+    box-shadow:
+        0 10px 25px rgba(32,116,191,.25);
+}
+
+.secondary{
+    color:#1767b5;
+
+    background:rgba(255,255,255,.80);
+
+    border:1px solid rgba(179,210,237,.8);
+
+    box-shadow:
+        0 8px 20px rgba(35,88,130,.08);
+}
+
+
+/* =====================================================
+   HERO CARD
+===================================================== */
+
+.hero-card{
+    position:relative;
+
+    padding:38px 30px;
+
+    text-align:center;
+
+    border-radius:30px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.88),
+            rgba(238,248,255,.75)
+        );
+
+    border:1px solid rgba(255,255,255,.95);
+
+    backdrop-filter:blur(20px);
+    -webkit-backdrop-filter:blur(20px);
+
+    box-shadow:
+        0 25px 60px rgba(35,83,130,.17);
+
+    animation:floatCard 4s ease-in-out infinite;
+}
+
+@keyframes floatCard{
+
+    0%,100%{
+        transform:translateY(0);
+    }
+
+    50%{
+        transform:translateY(-8px);
+    }
+}
+
+
+.shield-circle{
+    width:125px;
+    height:125px;
+
+    margin:0 auto 22px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    border-radius:50%;
+
+    background:
+        linear-gradient(
+            145deg,
+            #d9efff,
+            #ffffff
+        );
+
+    box-shadow:
+        inset 0 2px 10px rgba(255,255,255,.9),
+        0 15px 35px rgba(39,117,182,.18);
+
+    font-size:67px;
+}
+
+.hero-card h2{
+    color:#195d9f;
+
+    font-size:24px;
+
+    margin-bottom:10px;
+}
+
+.hero-card p{
+    color:#60758d;
+
+    font-size:15px;
+
+    margin-bottom:22px;
+}
+
+
+/* mini stats */
+
+.mini-stats{
+    display:grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap:8px;
+}
+
+.stat{
+    padding:10px 5px;
+
+    border-radius:12px;
+
+    background:rgba(255,255,255,.65);
+
+    border:1px solid rgba(219,233,245,.8);
+}
+
+.stat strong{
+    display:block;
+
+    color:#1768b7;
+
+    font-size:18px;
+}
+
+.stat span{
+    display:block;
+
+    color:#718298;
+
+    font-size:11px;
+}
+
+
+/* =====================================================
+   LEARNING SECTION
+===================================================== */
+
+.learning-section{
+    position:relative;
+
+    padding:80px 0 100px;
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(245,250,255,.42),
+            rgba(232,243,253,.70)
+        );
+}
+
+.section-heading{
+    text-align:center;
+
+    max-width:720px;
+
+    margin:0 auto 45px;
+}
+
+.section-heading h2{
+    margin-top:15px;
+
+    color:#174f86;
+
+    font-size:38px;
+}
+
+.section-heading p{
+    color:#667b91;
+
+    margin-top:8px;
+}
+
+
+/* =====================================================
+   LEARNING CARDS
+===================================================== */
+
+.cards{
+    display:grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap:20px;
+}
+
+.card{
+    position:relative;
+
+    padding:27px;
+
+    min-height:210px;
+
+    text-decoration:none;
+
+    border-radius:22px;
+
+    background:
+        rgba(255,255,255,.82);
+
+    border:1px solid rgba(255,255,255,.95);
+
+    backdrop-filter:blur(15px);
+
+    box-shadow:
+        0 10px 30px rgba(40,91,135,.10);
+
+    overflow:hidden;
+
+    transition:
+        transform .25s ease,
+        box-shadow .25s ease;
+}
+
+.card::before{
+    content:"";
+
+    position:absolute;
+
+    width:90px;
+    height:90px;
+
+    border-radius:50%;
+
+    background:rgba(83,170,235,.08);
+
+    right:-30px;
+    top:-30px;
+}
+
+.card:hover{
+    transform:translateY(-8px);
+
+    box-shadow:
+        0 18px 40px rgba(37,91,139,.17);
+}
+
+.card-number{
+    position:absolute;
+
+    top:18px;
+    right:20px;
+
+    color:#a7bdd1;
+
+    font-size:13px;
+
+    font-weight:bold;
+}
+
+.icon{
+    width:58px;
+    height:58px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    border-radius:17px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #e4f4ff,
+            #f7fbff
+        );
+
+    box-shadow:
+        0 8px 18px rgba(45,117,175,.10);
+
+    font-size:29px;
+
+    margin-bottom:17px;
+}
+
+.card h3{
+    color:#1c5d99;
+
+    font-size:19px;
+
+    margin-bottom:7px;
+}
+
+.card p{
+    color:#697d92;
+
+    font-size:14px;
+}
+
+
+/* =====================================================
+   INFORMATION STRIP
+===================================================== */
+
+.info-strip{
+    margin-top:45px;
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap:16px;
+}
+
+.info-box{
+    display:flex;
+
+    align-items:center;
+
+    gap:14px;
+
+    padding:19px;
+
+    border-radius:17px;
+
+    background:rgba(255,255,255,.65);
+
+    border:1px solid rgba(255,255,255,.9);
+}
+
+.info-icon{
+    font-size:28px;
+}
+
+.info-box strong{
+    display:block;
+
+    color:#245c91;
+
+    font-size:15px;
+}
+
+.info-box span{
+    display:block;
+
+    color:#74869a;
+
+    font-size:12px;
+}
+
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+footer{
+    padding:28px 15px;
+
+    text-align:center;
+
+    color:#dceeff;
+
+    background:
+        linear-gradient(
+            135deg,
+            #123e69,
+            #195c91
+        );
+}
+
+footer strong{
+    color:#fff;
+}
+
+.footer-sub{
+    margin-top:4px;
+
+    color:#b9d5ec;
+
+    font-size:12px;
+}
+
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+
+@media(max-width:1050px){
+
+    .top{
+        padding:10px 0;
+    }
+
+    nav{
+        width:100%;
+
+        justify-content:center;
+    }
+
+    .hero-grid{
+        grid-template-columns:1fr;
+
+        gap:45px;
+    }
+
+    .hero-content{
+        max-width:800px;
+
+        text-align:center;
+
+        margin:auto;
+    }
+
+    .hero-description{
+        margin-left:auto;
+        margin-right:auto;
+    }
+
+    .actions{
+        justify-content:center;
+    }
+
+    .hero-card{
+        max-width:480px;
+
+        width:100%;
+
+        margin:auto;
+    }
+
+    .cards{
+        grid-template-columns:
+            repeat(2,1fr);
+    }
+}
+
+
+@media(max-width:700px){
+
+    .logo{
+        font-size:16px;
+    }
+
+    .logo-icon{
+        width:37px;
+        height:37px;
+
+        font-size:19px;
+    }
+
+    nav{
+        gap:3px;
+    }
+
+    nav a{
+        font-size:12px;
+
+        padding:7px 8px;
+    }
+
+    .hero{
+        padding:65px 0;
+    }
+
+    .hero h1{
+        font-size:38px;
+    }
+
+    .hero-description{
+        font-size:16px;
+    }
+
+    .cards{
+        grid-template-columns:1fr;
+    }
+
+    .info-strip{
+        grid-template-columns:1fr;
+    }
+
+    .section-heading h2{
+        font-size:30px;
+    }
+}
+
+
+@media(max-width:450px){
+
+    .top{
+        justify-content:center;
+    }
+
+    .logo{
+        width:100%;
+
+        justify-content:center;
+    }
+
+    nav{
+        justify-content:center;
+    }
+
+    .hero h1{
+        font-size:32px;
+    }
+
+    .actions{
+        flex-direction:column;
+    }
+
+    .btn{
+        width:100%;
+    }
+
+    .hero-card{
+        padding:28px 20px;
+    }
+
+    .shield-circle{
+        width:105px;
+        height:105px;
+
+        font-size:55px;
+    }
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     HEADER
+===================================================== -->
+
+<header>
+
+<div class="container top">
+
+<a class="logo" href="index.html">
+
+<span class="logo-icon">🛡️</span>
+
+<span>
+เทคโนโลยีอย่างปลอดภัย
+</span>
+
+</a>
+
+
+<nav>
+
+<a class="active" href="index.html">
+หน้าหลัก
+</a>
+
+<a href="guide.html">
+คู่มือ
+</a>
+
+<a href="pretest.html">
+ก่อนเรียน
+</a>
+
+<a href="lesson.html">
+บทเรียน
+</a>
+
+<a href="activity.html">
+กิจกรรม
+</a>
+
+<a href="summary.html">
+สรุป
+</a>
+
+<a href="posttest.html">
+หลังเรียน
+</a>
+
+<a href="author.html">
+ผู้จัดทำ
+</a>
+
+</nav>
+
+</div>
+
+</header>
+
+
+
+<!-- =====================================================
+     HERO
+===================================================== -->
+
+<section class="hero">
+
+<div class="container hero-grid">
+
+
+<!-- LEFT -->
+
+<div class="hero-content">
+
+<span class="badge">
+🔐 บทเรียนออนไลน์เพื่อการเรียนรู้
+</span>
+
+
+<h1>
+
+การใช้งาน<br>
+
+<span>เทคโนโลยีสารสนเทศ</span><br>
+
+อย่างปลอดภัย
+
+</h1>
+
+
+<p class="hero-description">
+
+เรียนรู้วิธีใช้เทคโนโลยีและอินเทอร์เน็ตอย่างปลอดภัย
+รู้จักปกป้องข้อมูลส่วนตัว ใช้รหัสผ่านอย่างเหมาะสม
+รู้เท่าทันภัยออนไลน์ และสื่อสารอย่างมีความรับผิดชอบ
+
+</p>
+
+
+<div class="actions">
+
+<a class="btn primary" href="guide.html">
+🚀 เริ่มเรียนรู้
+</a>
+
+<a class="btn secondary" href="pretest.html">
+📝 ทำแบบทดสอบก่อนเรียน
+</a>
+
+</div>
+
+</div>
+
+
+
+<!-- RIGHT -->
+
+<div class="hero-card">
+
+<div class="shield-circle">
+🛡️
+</div>
+
+
+<h2>
+เรียนรู้ • ทดลอง • ปลอดภัย
+</h2>
+
+
+<p>
+เรียนรู้เรื่องความปลอดภัยทางเทคโนโลยี
+ผ่านบทเรียน กิจกรรม และแบบทดสอบ
+</p>
+
+
+<div class="mini-stats">
+
+<div class="stat">
+
+<strong>8</strong>
+
+<span>
+หน้าเรียนรู้
+</span>
+
+</div>
+
+
+<div class="stat">
+
+<strong>✓</strong>
+
+<span>
+ปลอดภัย
+</span>
+
+</div>
+
+
+<div class="stat">
+
+<strong>💡</strong>
+
+<span>
+เรียนรู้สนุก
+</span>
+
+</div>
+
+</div>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+
+<!-- =====================================================
+     LEARNING PATH
+===================================================== -->
+
+<section class="learning-section">
+
+<div class="container">
+
+
+<div class="section-heading">
+
+<span class="badge">
+📚 เส้นทางการเรียนรู้
+</span>
+
+<h2>
+เรียนรู้ไปทีละขั้น
+</h2>
+
+<p>
+เลือกหัวข้อที่ต้องการศึกษา หรือเรียนตามลำดับตั้งแต่ต้นจนจบ
+</p>
+
+</div>
+
+
+
+<div class="cards">
+
+
+<!-- CARD 1 -->
+
+<a class="card" href="guide.html">
+
+<span class="card-number">
+01
+</span>
+
+<div class="icon">
+📖
+</div>
+
+<h3>
+คู่มือการใช้งาน
+</h3>
+
+<p>
+ทำความรู้จักเว็บไซต์และวิธีการเรียนรู้ผ่านบทเรียนออนไลน์
+</p>
+
+</a>
+
+
+
+<!-- CARD 2 -->
+
+<a class="card" href="pretest.html">
+
+<span class="card-number">
+02
+</span>
+
+<div class="icon">
+📝
+</div>
+
+<h3>
+แบบทดสอบก่อนเรียน
+</h3>
+
+<p>
+ตรวจสอบความรู้เดิมก่อนเริ่มศึกษาเนื้อหา
+</p>
+
+</a>
+
+
+
+<!-- CARD 3 -->
+
+<a class="card" href="lesson.html">
+
+<span class="card-number">
+03
+</span>
+
+<div class="icon">
+💻
+</div>
+
+<h3>
+บทเรียน
+</h3>
+
+<p>
+เรียนรู้หลักการใช้เทคโนโลยีสารสนเทศอย่างปลอดภัย
+</p>
+
+</a>
+
+
+
+<!-- CARD 4 -->
+
+<a class="card" href="activity.html">
+
+<span class="card-number">
+04
+</span>
+
+<div class="icon">
+🎯
+</div>
+
+<h3>
+กิจกรรม
+</h3>
+
+<p>
+ฝึกคิด วิเคราะห์ และตัดสินใจจากสถานการณ์ต่าง ๆ
+</p>
+
+</a>
+
+
+
+<!-- CARD 5 -->
+
+<a class="card" href="summary.html">
+
+<span class="card-number">
+05
+</span>
+
+<div class="icon">
+💡
+</div>
+
+<h3>
+สรุปบทเรียน
+</h3>
+
+<p>
+ทบทวนสาระสำคัญและแนวทางการใช้เทคโนโลยีอย่างปลอดภัย
+</p>
+
+</a>
+
+
+
+<!-- CARD 6 -->
+
+<a class="card" href="posttest.html">
+
+<span class="card-number">
+06
+</span>
+
+<div class="icon">
+🏆
+</div>
+
+<h3>
+แบบทดสอบหลังเรียน
+</h3>
+
+<p>
+ทดสอบความรู้หลังเรียนและตรวจสอบพัฒนาการของตนเอง
+</p>
+
+</a>
+
+
+</div>
+
+
+
+<!-- =====================================================
+     INFORMATION STRIP
+===================================================== -->
+
+<div class="info-strip">
+
+
+<div class="info-box">
+
+<div class="info-icon">
+🔐
+</div>
+
+<div>
+
+<strong>
+ปกป้องข้อมูลส่วนตัว
+</strong>
+
+<span>
+รู้จักข้อมูลที่ควรเก็บเป็นความลับ
+</span>
+
+</div>
+
+</div>
+
+
+
+<div class="info-box">
+
+<div class="info-icon">
+🛡️
+</div>
+
+<div>
+
+<strong>
+ใช้งานอย่างปลอดภัย
+</strong>
+
+<span>
+รู้เท่าทันภัยและความเสี่ยงออนไลน์
+</span>
+
+</div>
+
+</div>
+
+
+
+<div class="info-box">
+
+<div class="info-icon">
+💬
+</div>
+
+<div>
+
+<strong>
+สื่อสารอย่างรับผิดชอบ
+</strong>
+
+<span>
+เคารพผู้อื่นและใช้เทคโนโลยีอย่างเหมาะสม
+</span>
+
+</div>
+
+</div>
+
+
+</div>
+
+
+</div>
+
+</section>
+
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer>
+
+<div>
+
+<strong>
+🛡️ การใช้งานเทคโนโลยีสารสนเทศอย่างปลอดภัย
+</strong>
+
+</div>
+
+<div class="footer-sub">
+
+เว็บไซต์เพื่อการเรียนรู้และส่งเสริมทักษะการใช้เทคโนโลยีอย่างปลอดภัย
+
+</div>
+
+<div class="footer-sub">
+
+© 2026 เว็บไซต์การใช้งานเทคโนโลยีสารสนเทศอย่างปลอดภัย
+
+</div>
+
+</footer>
+
+
+</body>
+</html>
+```

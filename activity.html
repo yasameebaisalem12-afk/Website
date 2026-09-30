@@ -1,0 +1,1787 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>เกมผีหลอกไซเบอร์ | การใช้งานเทคโนโลยีสารสนเทศอย่างปลอดภัย</title>
+
+<style>
+
+*{
+  box-sizing:border-box;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  margin:0;
+  font-family:Tahoma,Arial,sans-serif;
+  background:
+    radial-gradient(circle at 20% 10%,rgba(96,165,250,.20),transparent 28%),
+    radial-gradient(circle at 85% 20%,rgba(139,92,246,.20),transparent 28%),
+    linear-gradient(135deg,#eef7ff,#f4f0ff,#edfaff);
+  color:#26364d;
+  line-height:1.75;
+  min-height:100vh;
+  overflow-x:hidden;
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+header{
+  background:rgba(255,255,255,.96);
+  box-shadow:0 3px 15px rgba(30,70,120,.12);
+  position:sticky;
+  top:0;
+  z-index:100;
+  backdrop-filter:blur(10px);
+}
+
+.container{
+  width:min(1120px,92%);
+  margin:auto;
+}
+
+.top{
+  min-height:70px;
+  display:flex;
+  align-items:center;
+  gap:20px;
+  flex-wrap:wrap;
+}
+
+.logo{
+  font-size:20px;
+  font-weight:bold;
+  color:#245fa8;
+  text-decoration:none;
+  white-space:nowrap;
+}
+
+nav{
+  display:flex;
+  gap:5px;
+  margin-left:auto;
+  flex-wrap:wrap;
+  justify-content:flex-end;
+}
+
+nav a{
+  font-size:14px;
+  text-decoration:none;
+  color:#52627a;
+  padding:8px 10px;
+  border-radius:9px;
+  transition:.2s;
+}
+
+nav a:hover,
+nav a.active{
+  background:#e9f2ff;
+  color:#1e62b4;
+}
+
+
+/* =========================
+   HERO
+========================= */
+
+.game-hero{
+  padding:55px 0 25px;
+  text-align:center;
+}
+
+.badge{
+  display:inline-block;
+  background:#e5efff;
+  color:#2463b2;
+  border-radius:30px;
+  padding:7px 18px;
+  font-size:14px;
+  font-weight:bold;
+}
+
+.game-hero h1{
+  font-size:clamp(32px,5vw,54px);
+  line-height:1.2;
+  color:#173d6d;
+  margin:15px 0 8px;
+}
+
+.game-hero p{
+  font-size:18px;
+  color:#596b82;
+  margin:0;
+}
+
+
+/* =========================
+   GAME CONTAINER
+========================= */
+
+.game-box{
+  background:rgba(255,255,255,.97);
+  border-radius:30px;
+  box-shadow:0 15px 45px rgba(31,70,110,.14);
+  padding:28px;
+  margin-bottom:50px;
+  position:relative;
+  overflow:hidden;
+}
+
+
+/* =========================
+   HUD
+========================= */
+
+.hud{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:15px;
+  margin-bottom:20px;
+}
+
+.hud-card{
+  background:linear-gradient(135deg,#f8fbff,#eef5ff);
+  border:1px solid #dce8f7;
+  border-radius:18px;
+  padding:13px;
+  text-align:center;
+}
+
+.hud-icon{
+  font-size:27px;
+}
+
+.hud-title{
+  font-size:13px;
+  color:#718096;
+}
+
+.hud-value{
+  font-size:23px;
+  font-weight:bold;
+  color:#2563b8;
+}
+
+
+/* =========================
+   PROGRESS
+========================= */
+
+.progress-box{
+  margin-bottom:25px;
+}
+
+.progress-top{
+  display:flex;
+  justify-content:space-between;
+  font-weight:bold;
+  margin-bottom:7px;
+}
+
+.progress{
+  width:100%;
+  height:14px;
+  background:#e2e8f0;
+  border-radius:20px;
+  overflow:hidden;
+}
+
+.progress-fill{
+  width:0%;
+  height:100%;
+  background:linear-gradient(90deg,#2563eb,#7c3aed);
+  border-radius:20px;
+  transition:.5s;
+}
+
+
+/* =========================
+   START SCREEN
+========================= */
+
+.start{
+  text-align:center;
+  padding:35px 15px 45px;
+}
+
+.start-ghost{
+  font-size:110px;
+  display:inline-block;
+  animation:ghostFloat 2s ease-in-out infinite;
+  filter:drop-shadow(0 10px 12px rgba(79,70,120,.20));
+}
+
+@keyframes ghostFloat{
+
+  0%,100%{
+    transform:translateY(0) rotate(-3deg);
+  }
+
+  50%{
+    transform:translateY(-15px) rotate(3deg);
+  }
+
+}
+
+.start h2{
+  color:#245d9f;
+  font-size:31px;
+  margin:5px 0 10px;
+}
+
+.start p{
+  max-width:680px;
+  margin:0 auto 25px;
+  color:#617189;
+  font-size:17px;
+}
+
+.rules{
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:12px;
+  margin:20px 0 30px;
+}
+
+.rule{
+  background:#f7f9ff;
+  border:1px solid #dce7f6;
+  padding:10px 17px;
+  border-radius:15px;
+  font-weight:bold;
+}
+
+.start-btn{
+  border:0;
+  cursor:pointer;
+  color:white;
+  font-size:20px;
+  font-weight:bold;
+  padding:15px 38px;
+  border-radius:17px;
+  background:linear-gradient(135deg,#2563eb,#7c3aed);
+  box-shadow:0 10px 25px rgba(79,70,229,.25);
+  transition:.25s;
+}
+
+.start-btn:hover{
+  transform:translateY(-4px) scale(1.03);
+}
+
+
+/* =========================
+   GAME
+========================= */
+
+.game{
+  display:none;
+}
+
+.level{
+  text-align:center;
+  margin-bottom:18px;
+}
+
+.level span{
+  display:inline-block;
+  color:white;
+  background:linear-gradient(135deg,#2563eb,#7c3aed);
+  padding:8px 23px;
+  border-radius:50px;
+  font-weight:bold;
+  box-shadow:0 6px 15px rgba(79,70,229,.20);
+}
+
+.question-card{
+  background:linear-gradient(135deg,#fbfdff,#f4f7ff);
+  border:2px solid #dfe8f6;
+  border-radius:25px;
+  padding:28px;
+}
+
+.question-emoji{
+  font-size:58px;
+  text-align:center;
+  margin-bottom:5px;
+}
+
+.question{
+  text-align:center;
+  max-width:850px;
+  margin:0 auto 25px;
+  font-size:22px;
+  line-height:1.6;
+  color:#173d6d;
+}
+
+.choices{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:13px;
+}
+
+.choice{
+  position:relative;
+}
+
+.choice input{
+  position:absolute;
+  opacity:0;
+}
+
+.choice label{
+  display:block;
+  background:white;
+  border:2px solid #dbe4ef;
+  border-radius:16px;
+  padding:16px;
+  cursor:pointer;
+  height:100%;
+  transition:.2s;
+}
+
+.choice label:hover{
+  background:#f2f6ff;
+  border-color:#7290df;
+  transform:translateY(-2px);
+}
+
+.choice input:checked + label{
+  background:#eaf2ff;
+  border-color:#286ac7;
+  box-shadow:0 6px 16px rgba(40,106,199,.14);
+}
+
+
+/* =========================
+   ANSWER BUTTON
+========================= */
+
+.answer-area{
+  text-align:center;
+  margin-top:22px;
+}
+
+.answer-btn{
+  border:0;
+  cursor:pointer;
+  background:linear-gradient(135deg,#16a34a,#059669);
+  color:white;
+  padding:15px 38px;
+  border-radius:16px;
+  font-size:18px;
+  font-weight:bold;
+  box-shadow:0 8px 20px rgba(22,163,74,.22);
+  transition:.2s;
+}
+
+.answer-btn:hover{
+  transform:translateY(-3px);
+}
+
+
+/* =========================
+   MESSAGE
+========================= */
+
+.message{
+  display:none;
+  text-align:center;
+  margin-top:18px;
+  padding:15px;
+  border-radius:15px;
+  font-weight:bold;
+}
+
+
+/* =========================
+   GHOST POPUP
+========================= */
+
+.ghost-overlay{
+  position:fixed;
+  inset:0;
+  background:rgba(12,15,35,.72);
+  z-index:9999;
+  display:none;
+  align-items:center;
+  justify-content:center;
+  backdrop-filter:blur(5px);
+}
+
+.ghost-overlay.show{
+  display:flex;
+  animation:screenFlash .25s;
+}
+
+@keyframes screenFlash{
+
+  0%{
+    background:rgba(255,0,0,.65);
+  }
+
+  100%{
+    background:rgba(12,15,35,.72);
+  }
+
+}
+
+.ghost-box{
+  width:min(500px,88%);
+  background:linear-gradient(135deg,#1e1b4b,#312e81);
+  border:3px solid #818cf8;
+  border-radius:30px;
+  padding:30px;
+  text-align:center;
+  color:white;
+  box-shadow:0 20px 70px rgba(0,0,0,.45);
+  animation:ghostJump .5s ease-out;
+}
+
+@keyframes ghostJump{
+
+  0%{
+    transform:scale(.2) rotate(-15deg);
+    opacity:0;
+  }
+
+  70%{
+    transform:scale(1.08) rotate(4deg);
+  }
+
+  100%{
+    transform:scale(1) rotate(0);
+    opacity:1;
+  }
+
+}
+
+.big-ghost{
+  font-size:145px;
+  line-height:1;
+  animation:scaryGhost 1s infinite;
+}
+
+@keyframes scaryGhost{
+
+  0%,100%{
+    transform:translateX(0) rotate(-4deg);
+  }
+
+  50%{
+    transform:translateX(5px) rotate(4deg);
+  }
+
+}
+
+.ghost-box h2{
+  color:white;
+  font-size:32px;
+  margin:10px 0;
+}
+
+.ghost-box p{
+  font-size:18px;
+}
+
+.ghost-close{
+  border:0;
+  background:#f43f5e;
+  color:white;
+  padding:12px 25px;
+  border-radius:13px;
+  font-weight:bold;
+  font-size:16px;
+  cursor:pointer;
+}
+
+
+/* =========================
+   GHOST DISAPPEAR EFFECT
+========================= */
+
+.disappear{
+  animation:ghostDisappear .9s ease forwards;
+}
+
+@keyframes ghostDisappear{
+
+  0%{
+    opacity:1;
+    transform:scale(1);
+    filter:blur(0);
+  }
+
+  50%{
+    opacity:.7;
+    transform:scale(1.2);
+  }
+
+  100%{
+    opacity:0;
+    transform:scale(.1);
+    filter:blur(15px);
+  }
+
+}
+
+
+/* =========================
+   FINAL RESULT
+========================= */
+
+.result{
+  display:none;
+  text-align:center;
+  padding:40px 15px;
+}
+
+.result-ghost{
+  font-size:105px;
+  margin-bottom:5px;
+}
+
+.result h2{
+  font-size:34px;
+  color:#245d9f;
+}
+
+.score{
+  font-size:68px;
+  font-weight:bold;
+  color:#2563b8;
+  line-height:1.2;
+}
+
+.rank{
+  display:inline-block;
+  margin:20px 0;
+  padding:12px 25px;
+  border-radius:50px;
+  background:#fef3c7;
+  color:#92400e;
+  font-weight:bold;
+  font-size:18px;
+}
+
+.result p{
+  color:#5f7088;
+  font-size:18px;
+}
+
+.restart{
+  border:0;
+  cursor:pointer;
+  background:#64748b;
+  color:white;
+  padding:13px 27px;
+  border-radius:13px;
+  font-size:16px;
+  font-weight:bold;
+}
+
+
+/* =========================
+   CONFETTI
+========================= */
+
+.confetti{
+  position:fixed;
+  top:-20px;
+  z-index:10000;
+  pointer-events:none;
+  animation:fall 2.7s linear forwards;
+}
+
+@keyframes fall{
+
+  0%{
+    transform:translateY(0) rotate(0);
+    opacity:1;
+  }
+
+  100%{
+    transform:translateY(110vh) rotate(720deg);
+    opacity:0;
+  }
+
+}
+
+
+/* =========================
+   NOTICE
+========================= */
+
+.notice{
+  background:#fff;
+  border-left:5px solid #3476cf;
+  padding:20px;
+  border-radius:14px;
+  margin-top:20px;
+  color:#53657c;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer{
+  background:#173d6d;
+  color:#e4efff;
+  text-align:center;
+  padding:20px;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:750px){
+
+  .choices{
+    grid-template-columns:1fr;
+  }
+
+  .question{
+    font-size:19px;
+  }
+
+  .game-box{
+    padding:17px;
+    border-radius:20px;
+  }
+
+}
+
+@media(max-width:600px){
+
+  .hud{
+    grid-template-columns:1fr 1fr 1fr;
+    gap:7px;
+  }
+
+  .hud-card{
+    padding:9px 4px;
+  }
+
+  .hud-icon{
+    font-size:21px;
+  }
+
+  .hud-value{
+    font-size:19px;
+  }
+
+  nav{
+    margin-left:0;
+    justify-content:flex-start;
+  }
+
+  nav a{
+    font-size:12px;
+  }
+
+  .big-ghost{
+    font-size:100px;
+  }
+
+  .ghost-box h2{
+    font-size:25px;
+  }
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- =========================
+     HEADER
+========================= -->
+
+<header>
+
+<div class="container top">
+
+<a class="logo" href="index.html">
+🛡️ เทคโนโลยีอย่างปลอดภัย
+</a>
+
+<nav>
+
+<a href="index.html">หน้าหลัก</a>
+
+<a href="guide.html">คู่มือการใช้งาน</a>
+
+<a href="pretest.html">แบบทดสอบก่อนเรียน</a>
+
+<a href="lesson.html">บทเรียน</a>
+
+<a class="active" href="activity.html">กิจกรรม</a>
+
+<a href="summary.html">สรุปบทเรียน</a>
+
+<a href="posttest.html">แบบทดสอบหลังเรียน</a>
+
+<a href="author.html">ผู้จัดทำ</a>
+
+</nav>
+
+</div>
+
+</header>
+
+
+
+<!-- =========================
+     GAME TITLE
+========================= -->
+
+<section class="game-hero">
+
+<div class="container">
+
+<span class="badge">
+👻 GAME MODE
+</span>
+
+<h1>
+เกมผีหลอกไซเบอร์
+</h1>
+
+<p>
+ตอบให้ถูก...ผีจะหาย 👻
+ตอบผิด...ระวังผีโผล่! 😱
+</p>
+
+</div>
+
+</section>
+
+
+
+<!-- =========================
+     GAME BOX
+========================= -->
+
+<main class="container">
+
+<div class="game-box">
+
+
+<!-- HUD -->
+
+<div class="hud">
+
+<div class="hud-card">
+
+<div class="hud-icon">
+⭐
+</div>
+
+<div class="hud-title">
+คะแนน
+</div>
+
+<div class="hud-value" id="score">
+0
+</div>
+
+</div>
+
+
+<div class="hud-card">
+
+<div class="hud-icon">
+🎯
+</div>
+
+<div class="hud-title">
+ข้อ
+</div>
+
+<div class="hud-value" id="questionNumber">
+0 / 5
+</div>
+
+</div>
+
+
+<div class="hud-card">
+
+<div class="hud-icon">
+❤️
+</div>
+
+<div class="hud-title">
+ชีวิต
+</div>
+
+<div class="hud-value" id="life">
+3
+</div>
+
+</div>
+
+</div>
+
+
+
+<!-- PROGRESS -->
+
+<div class="progress-box">
+
+<div class="progress-top">
+
+<span>
+👻 กำจัดผีให้หมด!
+</span>
+
+<span id="progressText">
+0%
+</span>
+
+</div>
+
+<div class="progress">
+
+<div class="progress-fill" id="progressFill">
+</div>
+
+</div>
+
+</div>
+
+
+
+<!-- =========================
+     START
+========================= -->
+
+<div class="start" id="startScreen">
+
+<div class="start-ghost">
+👻
+</div>
+
+<h2>
+ภารกิจล่าผีไซเบอร์!
+</h2>
+
+<p>
+มีผีไซเบอร์ 5 ตัวกำลังแอบซ่อนอยู่ในโลกออนไลน์
+คุณต้องตอบคำถามให้ถูกเพื่อทำให้ผีหายไปทีละตัว!
+</p>
+
+<div class="rules">
+
+<div class="rule">
+👻 ตอบผิด = ผีหลอก!
+</div>
+
+<div class="rule">
+✨ ตอบถูก = ผีหาย!
+</div>
+
+<div class="rule">
+❤️ มีชีวิต 3 ดวง
+</div>
+
+<div class="rule">
+⭐ ข้อละ 1 คะแนน
+</div>
+
+</div>
+
+<button class="start-btn" onclick="startGame()">
+🚀 เริ่มล่าผี
+</button>
+
+</div>
+
+
+
+<!-- =========================
+     GAME
+========================= -->
+
+<div class="game" id="gameScreen">
+
+<div class="level">
+
+<span id="levelText">
+👻 ผีตัวที่ 1
+</span>
+
+</div>
+
+
+<div class="question-card">
+
+<div class="question-emoji" id="questionEmoji">
+👻
+</div>
+
+<h2 class="question" id="questionText">
+</h2>
+
+
+<div class="choices" id="choices">
+</div>
+
+
+<div id="message" class="message">
+</div>
+
+</div>
+
+
+<div class="answer-area">
+
+<button class="answer-btn" id="answerButton" onclick="checkAnswer()">
+🔮 ปราบผี!
+</button>
+
+</div>
+
+</div>
+
+
+
+<!-- =========================
+     RESULT
+========================= -->
+
+<div class="result" id="resultScreen">
+
+<div class="result-ghost" id="resultGhost">
+👻
+</div>
+
+<h2>
+ภารกิจจบแล้ว!
+</h2>
+
+<div class="score" id="finalScore">
+0 / 5
+</div>
+
+<div class="rank" id="rank">
+</div>
+
+<p id="resultMessage">
+</p>
+
+<button class="restart" onclick="restartGame()">
+🔄 ล่าผีอีกครั้ง
+</button>
+
+</div>
+
+
+<div class="notice">
+
+<strong>🛡️ จำไว้!</strong>
+
+<br>
+
+หยุดก่อนคลิก คิดก่อนแชร์ ตรวจสอบก่อนเชื่อ
+และไม่เปิดเผยข้อมูลส่วนตัวให้คนแปลกหน้า
+
+</div>
+
+
+</div>
+
+</main>
+
+
+
+<!-- =========================
+     GHOST POPUP
+========================= -->
+
+<div class="ghost-overlay" id="ghostOverlay">
+
+<div class="ghost-box">
+
+<div class="big-ghost">
+👻
+</div>
+
+<h2>
+ผีหลอกแล้ว! 😱
+</h2>
+
+<p id="ghostMessage">
+ตอบผิด! ระวังข้อมูลของเรานะ
+</p>
+
+<button class="ghost-close" onclick="closeGhost()">
+😵 โอเค! จะระวังแล้ว
+</button>
+
+</div>
+
+</div>
+
+
+
+<footer>
+
+© 2026 เว็บไซต์การใช้งานเทคโนโลยีสารสนเทศอย่างปลอดภัย
+
+</footer>
+
+
+
+<script>
+
+/* =====================================
+   คำถาม 5 ข้อ
+===================================== */
+
+const questions = [
+
+{
+  emoji:"🎁",
+  question:"เพื่อนส่งลิงก์รางวัลมาให้ และขอให้กรอกชื่อ ที่อยู่ และเบอร์โทรศัพท์ ควรทำอย่างไร?",
+
+  choices:[
+    "กรอกข้อมูลทันที",
+    "หยุด ตรวจสอบแหล่งที่มา และถามผู้ใหญ่หากไม่แน่ใจ",
+    "ส่งต่อให้เพื่อน",
+    "ใช้ข้อมูลของคนอื่นกรอกแทน"
+  ],
+
+  answer:1,
+
+  wrong:"อย่ารีบกรอกข้อมูล! ลิงก์ที่ไม่แน่ใจควรตรวจสอบก่อน 👻"
+
+},
+
+
+{
+  emoji:"💻",
+  question:"เมื่อใช้คอมพิวเตอร์สาธารณะและทำงานเสร็จแล้ว ควรทำสิ่งใด?",
+
+  choices:[
+    "เดินออกจากเครื่องทันที",
+    "บันทึกรหัสผ่านไว้",
+    "ออกจากระบบบัญชีของตนเอง",
+    "เปิดบัญชีค้างไว้"
+  ],
+
+  answer:2,
+
+  wrong:"โอ๊ะ! ถ้าไม่ออกจากระบบ คนอื่นอาจเข้าถึงบัญชีของเราได้ 👻"
+
+},
+
+
+{
+  emoji:"💬",
+  question:"ข้อใดเป็นพฤติกรรมการสื่อสารออนไลน์ที่เหมาะสม?",
+
+  choices:[
+    "ตรวจสอบข้อมูลก่อนแชร์",
+    "ส่งต่อข่าวทันที",
+    "ใช้คำพูดรุนแรง",
+    "เผยแพร่รูปของเพื่อนโดยไม่ขออนุญาต"
+  ],
+
+  answer:0,
+
+  wrong:"ระวัง! ก่อนแชร์ข้อมูลควรตรวจสอบความน่าเชื่อถือก่อน 👻"
+
+},
+
+
+{
+  emoji:"🔐",
+  question:"รหัสผ่านของตนเองควรปฏิบัติอย่างไร?",
+
+  choices:[
+    "บอกให้เพื่อนสนิท",
+    "เขียนไว้ในที่สาธารณะ",
+    "เก็บเป็นความลับ",
+    "โพสต์ในแชตกลุ่ม"
+  ],
+
+  answer:2,
+
+  wrong:"ผีเจอรหัสผ่านแล้ว! รหัสผ่านต้องเก็บเป็นความลับนะ 👻"
+
+},
+
+
+{
+  emoji:"📱",
+  question:"หากมีคนออนไลน์ขอข้อมูลที่ไม่ควรเปิดเผย ควรทำอย่างไร?",
+
+  choices:[
+    "ปฏิเสธและขอคำแนะนำจากผู้ใหญ่",
+    "ให้ข้อมูลเพื่อไม่ให้เสียมารยาท",
+    "ส่งรูปเอกสารให้",
+    "บอกรหัสผ่าน"
+  ],
+
+  answer:0,
+
+  wrong:"อย่าให้ข้อมูลสำคัญกับคนแปลกหน้า! ควรปฏิเสธและบอกผู้ใหญ่ 👻"
+
+}
+
+];
+
+
+/* =====================================
+   ตัวแปร
+===================================== */
+
+let currentQuestion = 0;
+
+let score = 0;
+
+let life = 3;
+
+let answered = false;
+
+
+/* =====================================
+   เริ่มเกม
+===================================== */
+
+function startGame(){
+
+  currentQuestion = 0;
+
+  score = 0;
+
+  life = 3;
+
+  answered = false;
+
+
+  document.getElementById("score").textContent = "0";
+
+  document.getElementById("life").textContent = "3";
+
+  document.getElementById("questionNumber").textContent = "1 / 5";
+
+
+  document.getElementById("startScreen").style.display = "none";
+
+  document.getElementById("resultScreen").style.display = "none";
+
+  document.getElementById("gameScreen").style.display = "block";
+
+
+  loadQuestion();
+
+}
+
+
+/* =====================================
+   โหลดคำถาม
+===================================== */
+
+function loadQuestion(){
+
+  answered = false;
+
+
+  const q = questions[currentQuestion];
+
+
+  document.getElementById("levelText").textContent =
+    "👻 ผีตัวที่ " + (currentQuestion + 1);
+
+
+  document.getElementById("questionEmoji").textContent =
+    q.emoji;
+
+
+  document.getElementById("questionText").textContent =
+    q.question;
+
+
+  document.getElementById("questionNumber").textContent =
+    (currentQuestion + 1) + " / " + questions.length;
+
+
+  const percent =
+    Math.round((currentQuestion / questions.length) * 100);
+
+
+  document.getElementById("progressFill").style.width =
+    percent + "%";
+
+
+  document.getElementById("progressText").textContent =
+    percent + "%";
+
+
+  const choices =
+    document.getElementById("choices");
+
+
+  choices.innerHTML = "";
+
+
+  for(let i=0;i<q.choices.length;i++){
+
+    const div =
+      document.createElement("div");
+
+    div.className = "choice";
+
+
+    div.innerHTML =
+
+      '<input type="radio" name="answer" id="answer'+i+'" value="'+i+'">' +
+
+      '<label for="answer'+i+'">' +
+
+      '<strong>' +
+      String.fromCharCode(65+i) +
+      '.</strong> ' +
+
+      q.choices[i] +
+
+      '</label>';
+
+
+    choices.appendChild(div);
+
+  }
+
+
+  document.getElementById("answerButton").disabled = false;
+
+  document.getElementById("answerButton").style.opacity = "1";
+
+
+  const msg =
+    document.getElementById("message");
+
+  msg.style.display = "none";
+
+}
+
+
+/* =====================================
+   ตรวจคำตอบ
+===================================== */
+
+function checkAnswer(){
+
+  if(answered){
+    return;
+  }
+
+
+  const selected =
+    document.querySelector(
+      'input[name="answer"]:checked'
+    );
+
+
+  if(!selected){
+
+    const msg =
+      document.getElementById("message");
+
+    msg.style.display = "block";
+
+    msg.style.background = "#fff7ed";
+
+    msg.style.color = "#c2410c";
+
+    msg.textContent =
+      "⚠️ เลือกคำตอบก่อนนะนักล่าผี!";
+
+    return;
+
+  }
+
+
+  answered = true;
+
+
+  const userAnswer =
+    Number(selected.value);
+
+
+  const correct =
+    questions[currentQuestion].answer;
+
+
+  document.getElementById("answerButton").disabled = true;
+
+  document.getElementById("answerButton").style.opacity = ".5";
+
+
+  if(userAnswer === correct){
+
+    /* ==========================
+       ตอบถูก
+    ========================== */
+
+    score++;
+
+
+    document.getElementById("score").textContent =
+      score;
+
+
+    showCorrectEffect();
+
+
+    setTimeout(function(){
+
+      nextQuestion();
+
+    },1200);
+
+
+  }else{
+
+    /* ==========================
+       ตอบผิด
+    ========================== */
+
+    life--;
+
+
+    document.getElementById("life").textContent =
+      life;
+
+
+    showGhost();
+
+
+  }
+
+}
+
+
+/* =====================================
+   ตอบถูก
+===================================== */
+
+function showCorrectEffect(){
+
+  const q =
+    document.getElementById("questionEmoji");
+
+
+  q.classList.add("disappear");
+
+
+  setTimeout(function(){
+
+    q.classList.remove("disappear");
+
+  },900);
+
+
+  createConfetti();
+
+
+  const msg =
+    document.getElementById("message");
+
+
+  msg.style.display = "block";
+
+  msg.style.background = "#ecfdf5";
+
+  msg.style.color = "#15803d";
+
+  msg.textContent =
+    "✨ ถูกต้อง! ผีหายไปแล้ว! +1 คะแนน 👻💨";
+
+}
+
+
+/* =====================================
+   ผีหลอก
+===================================== */
+
+function showGhost(){
+
+  const overlay =
+    document.getElementById("ghostOverlay");
+
+
+  document.getElementById("ghostMessage").textContent =
+    questions[currentQuestion].wrong;
+
+
+  overlay.classList.add("show");
+
+
+  playGhostSound();
+
+}
+
+
+/* =====================================
+   ปิดผี
+===================================== */
+
+function closeGhost(){
+
+  const overlay =
+    document.getElementById("ghostOverlay");
+
+
+  overlay.classList.remove("show");
+
+
+  if(life <= 0){
+
+    setTimeout(function(){
+
+      finishGame();
+
+    },300);
+
+    return;
+
+  }
+
+
+  setTimeout(function(){
+
+    nextQuestion();
+
+  },300);
+
+}
+
+
+/* =====================================
+   ไปข้อถัดไป
+===================================== */
+
+function nextQuestion(){
+
+  if(currentQuestion >= questions.length - 1){
+
+    finishGame();
+
+    return;
+
+  }
+
+
+  currentQuestion++;
+
+  loadQuestion();
+
+}
+
+
+/* =====================================
+   จบเกม
+===================================== */
+
+function finishGame(){
+
+  document.getElementById("gameScreen").style.display =
+    "none";
+
+
+  document.getElementById("resultScreen").style.display =
+    "block";
+
+
+  document.getElementById("progressFill").style.width =
+    "100%";
+
+
+  document.getElementById("progressText").textContent =
+    "100%";
+
+
+  document.getElementById("questionNumber").textContent =
+    "5 / 5";
+
+
+  document.getElementById("finalScore").textContent =
+    score + " / 5";
+
+
+  let rank = "";
+
+  let message = "";
+
+  let ghost = "";
+
+
+  if(score === 5){
+
+    rank =
+      "🏆 MASTER นักล่าผีไซเบอร์";
+
+    message =
+      "สุดยอดมาก! คุณตอบถูกทุกข้อ ผีไซเบอร์หายหมดแล้ว!";
+
+    ghost = "😱➡️💨";
+
+    createConfetti();
+
+  }
+
+  else if(score >= 4){
+
+    rank =
+      "🥇 PRO นักล่าผีไซเบอร์";
+
+    message =
+      "เก่งมาก! เหลือผีเพียงไม่กี่ตัว แต่คุณรู้วิธีป้องกันตัวเองแล้ว";
+
+    ghost = "👻💨";
+
+  }
+
+  else if(score >= 3){
+
+    rank =
+      "🥈 นักล่าผีฝึกหัด";
+
+    message =
+      "ทำได้ดี! ลองทบทวนบทเรียนอีกนิด แล้วกลับมาปราบผีให้หมด";
+
+    ghost = "👻";
+
+  }
+
+  else{
+
+    rank =
+      "🌱 มือใหม่หัดล่าผี";
+
+    message =
+      "ไม่เป็นไร! กลับไปทบทวนบทเรียน แล้วกลับมาปราบผีอีกครั้งนะ";
+
+    ghost = "👻";
+
+  }
+
+
+  document.getElementById("rank").textContent =
+    rank;
+
+
+  document.getElementById("resultMessage").textContent =
+    message;
+
+
+  document.getElementById("resultGhost").textContent =
+    ghost;
+
+}
+
+
+/* =====================================
+   เล่นใหม่
+===================================== */
+
+function restartGame(){
+
+  document.getElementById("resultScreen").style.display =
+    "none";
+
+
+  document.getElementById("startScreen").style.display =
+    "block";
+
+
+  document.getElementById("gameScreen").style.display =
+    "none";
+
+
+  document.getElementById("score").textContent =
+    "0";
+
+
+  document.getElementById("life").textContent =
+    "3";
+
+
+  document.getElementById("questionNumber").textContent =
+    "0 / 5";
+
+
+  document.getElementById("progressFill").style.width =
+    "0%";
+
+
+  document.getElementById("progressText").textContent =
+    "0%";
+
+
+  window.scrollTo({
+
+    top:0,
+
+    behavior:"smooth"
+
+  });
+
+}
+
+
+/* =====================================
+   Confetti
+===================================== */
+
+function createConfetti(){
+
+  const symbols = [
+    "⭐",
+    "✨",
+    "🎉",
+    "💙",
+    "🏆",
+    "🌟"
+  ];
+
+
+  for(let i=0;i<35;i++){
+
+    const c =
+      document.createElement("div");
+
+
+    c.className = "confetti";
+
+
+    c.textContent =
+      symbols[
+        Math.floor(
+          Math.random()*symbols.length
+        )
+      ];
+
+
+    c.style.left =
+      Math.random()*100 + "vw";
+
+
+    c.style.fontSize =
+      (12 + Math.random()*14) + "px";
+
+
+    c.style.animationDuration =
+      (1.5 + Math.random()*2) + "s";
+
+
+    document.body.appendChild(c);
+
+
+    setTimeout(function(){
+
+      c.remove();
+
+    },3500);
+
+  }
+
+}
+
+
+/* =====================================
+   เสียงผีแบบไม่ต้องใช้ไฟล์
+===================================== */
+
+function playGhostSound(){
+
+  try{
+
+    const AudioContext =
+      window.AudioContext ||
+      window.webkitAudioContext;
+
+
+    const ctx =
+      new AudioContext();
+
+
+    const oscillator =
+      ctx.createOscillator();
+
+
+    const gain =
+      ctx.createGain();
+
+
+    oscillator.type = "sawtooth";
+
+    oscillator.frequency.setValueAtTime(
+      220,
+      ctx.currentTime
+    );
+
+    oscillator.frequency.exponentialRampToValueAtTime(
+      80,
+      ctx.currentTime + .45
+    );
+
+
+    gain.gain.setValueAtTime(
+      .001,
+      ctx.currentTime
+    );
+
+    gain.gain.exponentialRampToValueAtTime(
+      .18,
+      ctx.currentTime + .05
+    );
+
+    gain.gain.exponentialRampToValueAtTime(
+      .001,
+      ctx.currentTime + .5
+    );
+
+
+    oscillator.connect(gain);
+
+    gain.connect(ctx.destination);
+
+
+    oscillator.start();
+
+    oscillator.stop(
+      ctx.currentTime + .5
+    );
+
+  }catch(e){
+
+    console.log("Audio not available");
+
+  }
+
+}
+
+</script>
+
+</body>
+</html>

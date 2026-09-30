@@ -1,0 +1,2000 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
+
+<title>
+บทเรียน | การใช้งานเทคโนโลยีสารสนเทศอย่างปลอดภัย
+</title>
+
+
+<style>
+
+/* =====================================================
+   RESET
+===================================================== */
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+
+/* =====================================================
+   BODY
+===================================================== */
+
+body{
+
+    font-family:
+        Tahoma,
+        Arial,
+        sans-serif;
+
+    color:#26364d;
+
+    line-height:1.75;
+
+    min-height:100vh;
+
+    /* รูป1.PNG เป็นพื้นหลังเว็บไซต์ */
+
+    background-image:
+
+        linear-gradient(
+            rgba(237,247,255,.78),
+            rgba(230,242,255,.78)
+        ),
+
+        url("รูป1.PNG");
+
+    background-size:cover;
+
+    background-position:center center;
+
+    background-attachment:fixed;
+
+    background-repeat:no-repeat;
+}
+
+
+/* =====================================================
+   CONTAINER
+===================================================== */
+
+.container{
+
+    width:min(1250px,94%);
+
+    margin:auto;
+}
+
+
+/* =====================================================
+   HEADER
+===================================================== */
+
+header{
+
+    position:sticky;
+
+    top:0;
+
+    z-index:1000;
+
+    background:
+        rgba(255,255,255,.88);
+
+    backdrop-filter:blur(18px);
+
+    -webkit-backdrop-filter:blur(18px);
+
+    border-bottom:
+        1px solid
+        rgba(255,255,255,.9);
+
+    box-shadow:
+        0 5px 25px
+        rgba(30,70,120,.12);
+}
+
+
+.top{
+
+    min-height:76px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    gap:20px;
+
+    flex-wrap:wrap;
+}
+
+
+/* =====================================================
+   LOGO
+===================================================== */
+
+.logo{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    color:#1767b5;
+
+    text-decoration:none;
+
+    font-size:19px;
+
+    font-weight:bold;
+
+    white-space:nowrap;
+}
+
+
+.logo-icon{
+
+    width:42px;
+
+    height:42px;
+
+    display:grid;
+
+    place-items:center;
+
+    border-radius:13px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #287bd0,
+            #65b9f1
+        );
+
+    box-shadow:
+        0 7px 18px
+        rgba(35,120,212,.22);
+
+    font-size:22px;
+}
+
+
+/* =====================================================
+   NAVIGATION
+===================================================== */
+
+nav{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:flex-end;
+
+    gap:4px;
+
+    margin-left:auto;
+
+    flex-wrap:wrap;
+}
+
+
+nav a{
+
+    padding:9px 12px;
+
+    border-radius:11px;
+
+    color:#52627a;
+
+    text-decoration:none;
+
+    font-size:13px;
+
+    transition:.25s;
+}
+
+
+nav a:hover{
+
+    color:#1768b8;
+
+    background:#eaf5ff;
+}
+
+
+nav a.active{
+
+    color:white;
+
+    background:
+        linear-gradient(
+            135deg,
+            #176ac1,
+            #4a9de3
+        );
+
+    box-shadow:
+        0 5px 15px
+        rgba(35,120,212,.22);
+}
+
+
+/* =====================================================
+   MAIN
+===================================================== */
+
+.page{
+
+    min-height:82vh;
+
+    padding:
+        60px
+        0
+        90px;
+}
+
+
+/* =====================================================
+   PAGE TITLE
+===================================================== */
+
+.page-title{
+
+    text-align:center;
+
+    margin-bottom:30px;
+}
+
+
+.badge{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:6px;
+
+    padding:
+        7px
+        17px;
+
+    border-radius:50px;
+
+    color:#1767b5;
+
+    background:
+        rgba(255,255,255,.86);
+
+    border:
+        1px solid
+        rgba(255,255,255,.95);
+
+    box-shadow:
+        0 5px 18px
+        rgba(31,88,140,.08);
+
+    font-size:14px;
+
+    font-weight:bold;
+}
+
+
+.page-title h1{
+
+    margin:
+        17px
+        0
+        8px;
+
+    color:#173d6d;
+
+    font-size:
+        clamp(34px,5vw,50px);
+
+    line-height:1.2;
+}
+
+
+.page-title p{
+
+    color:#667b91;
+
+    font-size:16px;
+}
+
+
+/* =====================================================
+   LESSON CONTAINER
+===================================================== */
+
+.lesson-container{
+
+    width:100%;
+
+    margin:auto;
+
+    padding:35px;
+
+    border-radius:30px;
+
+    background:
+        rgba(255,255,255,.80);
+
+    border:
+        1px solid
+        rgba(255,255,255,.95);
+
+    backdrop-filter:blur(18px);
+
+    -webkit-backdrop-filter:blur(18px);
+
+    box-shadow:
+        0 20px 55px
+        rgba(31,70,110,.13);
+}
+
+
+/* =====================================================
+   INTRO
+===================================================== */
+
+.lesson-intro{
+
+    text-align:center;
+
+    max-width:850px;
+
+    margin:
+        0
+        auto
+        30px;
+}
+
+
+.intro-icon{
+
+    width:65px;
+
+    height:65px;
+
+    margin:
+        0
+        auto
+        13px;
+
+    display:grid;
+
+    place-items:center;
+
+    border-radius:19px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #e2f3ff,
+            #ffffff
+        );
+
+    box-shadow:
+        0 8px 22px
+        rgba(37,110,170,.12);
+
+    font-size:33px;
+}
+
+
+.lesson-intro h2{
+
+    color:#205c98;
+
+    font-size:27px;
+
+    margin-bottom:6px;
+}
+
+
+.lesson-intro p{
+
+    color:#657a90;
+
+    font-size:15px;
+}
+
+
+/* =====================================================
+   SLIDES AREA
+===================================================== */
+
+.slides{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:30px;
+}
+
+
+/* =====================================================
+   SLIDE CARD
+===================================================== */
+
+.slide-card{
+
+    position:relative;
+
+    width:100%;
+
+    padding:10px;
+
+    border-radius:24px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #ffffff,
+            #eaf6ff
+        );
+
+    border:
+        1px solid
+        #d8eaf7;
+
+    box-shadow:
+        0 15px 40px
+        rgba(36,91,137,.13);
+
+    transition:
+        transform .25s ease,
+        box-shadow .25s ease;
+}
+
+
+.slide-card:hover{
+
+    transform:translateY(-3px);
+
+    box-shadow:
+        0 20px 48px
+        rgba(36,91,137,.18);
+}
+
+
+/* =====================================================
+   SLIDE NUMBER
+===================================================== */
+
+.slide-label{
+
+    position:absolute;
+
+    top:22px;
+
+    left:22px;
+
+    z-index:5;
+
+    padding:
+        7px
+        14px;
+
+    border-radius:30px;
+
+    color:white;
+
+    background:
+        linear-gradient(
+            135deg,
+            #176ac1,
+            #4a9de3
+        );
+
+    box-shadow:
+        0 5px 15px
+        rgba(23,106,193,.25);
+
+    font-size:14px;
+
+    font-weight:bold;
+}
+
+
+/* =====================================================
+   SLIDE IMAGE
+===================================================== */
+
+.slide-image{
+
+    display:block;
+
+    width:100%;
+
+    height:auto;
+
+    max-width:100%;
+
+    object-fit:contain;
+
+    border-radius:17px;
+
+    cursor:zoom-in;
+
+    transition:
+        transform .3s ease;
+}
+
+
+.slide-image:hover{
+
+    transform:scale(1.01);
+}
+
+
+/* =====================================================
+   SLIDE HINT
+===================================================== */
+
+.slide-hint{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:7px;
+
+    padding:
+        10px
+        5px
+        3px;
+
+    color:#5c758d;
+
+    font-size:13px;
+
+    text-align:center;
+}
+
+
+/* =====================================================
+   READING TIP
+===================================================== */
+
+.reading-tip{
+
+    margin-top:30px;
+
+    padding:
+        20px
+        24px;
+
+    border-left:
+        5px solid
+        #3476cf;
+
+    border-radius:15px;
+
+    background:
+        rgba(237,247,255,.88);
+
+    color:#566d84;
+
+    font-size:14px;
+}
+
+
+.reading-tip strong{
+
+    color:#245d9f;
+
+    font-size:16px;
+}
+
+
+/* =====================================================
+   BUTTONS
+===================================================== */
+
+.actions{
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:12px;
+
+    flex-wrap:wrap;
+
+    margin-top:30px;
+}
+
+
+.btn{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:7px;
+
+    min-height:47px;
+
+    padding:
+        12px
+        21px;
+
+    border-radius:13px;
+
+    text-decoration:none;
+
+    font-weight:bold;
+
+    transition:.25s;
+}
+
+
+.btn:hover{
+
+    transform:translateY(-3px);
+}
+
+
+.primary{
+
+    color:white;
+
+    background:
+        linear-gradient(
+            135deg,
+            #286ac7,
+            #4b9ee5
+        );
+
+    box-shadow:
+        0 9px 22px
+        rgba(40,106,199,.23);
+}
+
+
+.secondary{
+
+    color:#286ac7;
+
+    background:
+        rgba(255,255,255,.92);
+
+    border:
+        1px solid
+        #bdd2eb;
+}
+
+
+/* =====================================================
+   IMAGE MODAL
+===================================================== */
+
+.modal{
+
+    position:fixed;
+
+    inset:0;
+
+    z-index:3000;
+
+    display:none;
+
+    align-items:center;
+
+    justify-content:center;
+
+    padding:15px;
+
+    background:
+        rgba(7,25,45,.92);
+
+    backdrop-filter:blur(9px);
+}
+
+
+.modal.show{
+
+    display:flex;
+}
+
+
+/* =====================================================
+   MODAL CONTENT
+===================================================== */
+
+.modal-content{
+
+    position:relative;
+
+    width:
+        min(1300px,97vw);
+
+    height:
+        min(94vh,950px);
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    overflow:hidden;
+
+    border-radius:22px;
+
+    background:
+        rgba(255,255,255,.07);
+
+    border:
+        1px solid
+        rgba(255,255,255,.18);
+}
+
+
+/* =====================================================
+   MODAL IMAGE
+===================================================== */
+
+.modal-image{
+
+    max-width:94%;
+
+    max-height:84%;
+
+    object-fit:contain;
+
+    border-radius:12px;
+
+    box-shadow:
+        0 20px 65px
+        rgba(0,0,0,.45);
+
+    transition:
+        transform .25s ease;
+
+    cursor:grab;
+}
+
+
+/* =====================================================
+   MODAL BUTTON
+===================================================== */
+
+.modal-btn{
+
+    position:absolute;
+
+    width:48px;
+
+    height:48px;
+
+    display:grid;
+
+    place-items:center;
+
+    border:0;
+
+    border-radius:50%;
+
+    color:white;
+
+    background:
+        rgba(255,255,255,.18);
+
+    backdrop-filter:blur(8px);
+
+    cursor:pointer;
+
+    font-size:23px;
+
+    transition:.2s;
+
+    z-index:10;
+}
+
+
+.modal-btn:hover{
+
+    background:
+        rgba(255,255,255,.34);
+
+    transform:scale(1.08);
+}
+
+
+.close-btn{
+
+    top:18px;
+
+    right:18px;
+
+    font-size:28px;
+}
+
+
+.zoom-in{
+
+    bottom:18px;
+
+    right:78px;
+}
+
+
+.zoom-out{
+
+    bottom:18px;
+
+    right:20px;
+}
+
+
+/* =====================================================
+   PREVIOUS / NEXT
+===================================================== */
+
+.prev-btn{
+
+    left:18px;
+
+    top:50%;
+
+    transform:translateY(-50%);
+
+    font-size:28px;
+}
+
+
+.next-btn{
+
+    right:18px;
+
+    top:50%;
+
+    transform:translateY(-50%);
+
+    font-size:28px;
+}
+
+
+.prev-btn:hover,
+.next-btn:hover{
+
+    transform:
+        translateY(-50%)
+        scale(1.08);
+}
+
+
+/* =====================================================
+   SLIDE COUNTER
+===================================================== */
+
+.slide-counter{
+
+    position:absolute;
+
+    bottom:23px;
+
+    left:50%;
+
+    transform:translateX(-50%);
+
+    z-index:10;
+
+    padding:
+        6px
+        14px;
+
+    border-radius:30px;
+
+    color:white;
+
+    background:
+        rgba(0,0,0,.35);
+
+    backdrop-filter:blur(8px);
+
+    font-size:13px;
+}
+
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+footer{
+
+    padding:
+        27px
+        15px;
+
+    text-align:center;
+
+    color:#dceeff;
+
+    background:
+        linear-gradient(
+            135deg,
+            #123e69,
+            #195c91
+        );
+}
+
+
+.footer-sub{
+
+    margin-top:4px;
+
+    color:#b9d5ec;
+
+    font-size:12px;
+}
+
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+
+@media(max-width:900px){
+
+    .top{
+
+        padding:10px 0;
+    }
+
+
+    nav{
+
+        width:100%;
+
+        justify-content:center;
+    }
+
+
+    .lesson-container{
+
+        padding:
+            28px
+            20px;
+    }
+
+}
+
+
+@media(max-width:650px){
+
+    .page{
+
+        padding:
+            45px
+            0
+            65px;
+    }
+
+
+    .page-title h1{
+
+        font-size:32px;
+    }
+
+
+    .lesson-container{
+
+        padding:
+            22px
+            13px;
+
+        border-radius:22px;
+    }
+
+
+    .slide-card{
+
+        padding:6px;
+
+        border-radius:18px;
+    }
+
+
+    .slide-label{
+
+        top:15px;
+
+        left:15px;
+
+        padding:
+            5px
+            10px;
+
+        font-size:11px;
+    }
+
+
+    .slide-hint{
+
+        font-size:11px;
+    }
+
+
+    .reading-tip{
+
+        padding:
+            17px
+            18px;
+    }
+
+
+    .modal{
+
+        padding:7px;
+    }
+
+
+    .modal-content{
+
+        width:100%;
+
+        height:90vh;
+    }
+
+
+    .modal-image{
+
+        max-width:96%;
+
+        max-height:76%;
+    }
+
+
+    .modal-btn{
+
+        width:42px;
+
+        height:42px;
+    }
+
+
+    .prev-btn{
+
+        left:8px;
+    }
+
+
+    .next-btn{
+
+        right:8px;
+    }
+
+
+    .zoom-in{
+
+        right:60px;
+    }
+
+
+    .zoom-out{
+
+        right:10px;
+    }
+
+}
+
+
+@media(max-width:450px){
+
+    .logo{
+
+        width:100%;
+
+        justify-content:center;
+
+        font-size:16px;
+    }
+
+
+    nav a{
+
+        font-size:11px;
+
+        padding:
+            6px
+            7px;
+    }
+
+
+    .lesson-intro h2{
+
+        font-size:23px;
+    }
+
+
+    .actions{
+
+        flex-direction:column;
+    }
+
+
+    .btn{
+
+        width:100%;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     HEADER
+===================================================== -->
+
+<header>
+
+<div class="container top">
+
+
+<a class="logo"
+   href="index.html">
+
+<span class="logo-icon">
+🛡️
+</span>
+
+<span>
+เทคโนโลยีอย่างปลอดภัย
+</span>
+
+</a>
+
+
+<nav>
+
+<a href="index.html">
+หน้าหลัก
+</a>
+
+<a href="guide.html">
+คู่มือการใช้งาน
+</a>
+
+<a href="pretest.html">
+แบบทดสอบก่อนเรียน
+</a>
+
+<a class="active"
+   href="lesson.html">
+บทเรียน
+</a>
+
+<a href="activity.html">
+กิจกรรม
+</a>
+
+<a href="summary.html">
+สรุปบทเรียน
+</a>
+
+<a href="posttest.html">
+แบบทดสอบหลังเรียน
+</a>
+
+<a href="author.html">
+ผู้จัดทำ
+</a>
+
+</nav>
+
+</div>
+
+</header>
+
+
+
+<!-- =====================================================
+     MAIN
+===================================================== -->
+
+<main class="container page">
+
+
+<!-- =====================================================
+     PAGE TITLE
+===================================================== -->
+
+<div class="page-title">
+
+<span class="badge">
+📚 บทเรียน
+</span>
+
+
+<h1>
+การใช้งานเทคโนโลยีสารสนเทศอย่างปลอดภัย
+</h1>
+
+
+<p>
+อ่านและศึกษาบทเรียนจากสไลด์ทั้ง 5 หน้า
+</p>
+
+</div>
+
+
+
+<!-- =====================================================
+     LESSON CONTENT
+===================================================== -->
+
+<div class="lesson-container">
+
+
+<!-- =====================================================
+     INTRO
+===================================================== -->
+
+<div class="lesson-intro">
+
+<div class="intro-icon">
+📖
+</div>
+
+
+<h2>
+เรียนรู้จากสไลด์
+</h2>
+
+
+<p>
+นักเรียนสามารถอ่านเนื้อหาแต่ละสไลด์ได้จากภาพด้านล่าง
+หากต้องการอ่านรายละเอียดเพิ่มเติม สามารถคลิกที่ภาพเพื่อขยายได้
+</p>
+
+</div>
+
+
+
+<!-- =====================================================
+     SLIDES
+===================================================== -->
+
+<div class="slides">
+
+
+<!-- =====================================================
+     SLIDE 1
+===================================================== -->
+
+<div class="slide-card">
+
+<span class="slide-label">
+สไลด์ที่ 1
+</span>
+
+
+<img
+    src="สไลด์1.PNG"
+    alt="บทเรียนสไลด์ที่ 1"
+    class="slide-image"
+    onclick="openImage(0)"
+>
+
+
+<div class="slide-hint">
+
+<span>
+🔍
+</span>
+
+<span>
+คลิกภาพเพื่ออ่านแบบขยาย
+</span>
+
+</div>
+
+</div>
+
+
+
+<!-- =====================================================
+     SLIDE 2
+===================================================== -->
+
+<div class="slide-card">
+
+<span class="slide-label">
+สไลด์ที่ 2
+</span>
+
+
+<img
+    src="สไลด์2.PNG"
+    alt="บทเรียนสไลด์ที่ 2"
+    class="slide-image"
+    onclick="openImage(1)"
+>
+
+
+<div class="slide-hint">
+
+<span>
+🔍
+</span>
+
+<span>
+คลิกภาพเพื่ออ่านแบบขยาย
+</span>
+
+</div>
+
+</div>
+
+
+
+<!-- =====================================================
+     SLIDE 3
+===================================================== -->
+
+<div class="slide-card">
+
+<span class="slide-label">
+สไลด์ที่ 3
+</span>
+
+
+<img
+    src="สไลด์3.PNG"
+    alt="บทเรียนสไลด์ที่ 3"
+    class="slide-image"
+    onclick="openImage(2)"
+>
+
+
+<div class="slide-hint">
+
+<span>
+🔍
+</span>
+
+<span>
+คลิกภาพเพื่ออ่านแบบขยาย
+</span>
+
+</div>
+
+</div>
+
+
+
+<!-- =====================================================
+     SLIDE 4
+===================================================== -->
+
+<div class="slide-card">
+
+<span class="slide-label">
+สไลด์ที่ 4
+</span>
+
+
+<img
+    src="สไลด์4.PNG"
+    alt="บทเรียนสไลด์ที่ 4"
+    class="slide-image"
+    onclick="openImage(3)"
+>
+
+
+<div class="slide-hint">
+
+<span>
+🔍
+</span>
+
+<span>
+คลิกภาพเพื่ออ่านแบบขยาย
+</span>
+
+</div>
+
+</div>
+
+
+
+<!-- =====================================================
+     SLIDE 5
+===================================================== -->
+
+<div class="slide-card">
+
+<span class="slide-label">
+สไลด์ที่ 5
+</span>
+
+
+<img
+    src="สไลด์5.PNG"
+    alt="บทเรียนสไลด์ที่ 5"
+    class="slide-image"
+    onclick="openImage(4)"
+>
+
+
+<div class="slide-hint">
+
+<span>
+🔍
+</span>
+
+<span>
+คลิกภาพเพื่ออ่านแบบขยาย
+</span>
+
+</div>
+
+</div>
+
+
+</div>
+
+
+
+<!-- =====================================================
+     READING TIP
+===================================================== -->
+
+<div class="reading-tip">
+
+<strong>
+💡 คำแนะนำในการเรียน
+</strong>
+
+<br>
+
+ค่อย ๆ อ่านเนื้อหาทีละสไลด์
+หากตัวหนังสือมีขนาดเล็ก สามารถคลิกที่ภาพ
+เพื่อขยายและอ่านรายละเอียดได้ชัดเจนยิ่งขึ้น
+
+</div>
+
+
+
+<!-- =====================================================
+     BUTTONS
+===================================================== -->
+
+<div class="actions">
+
+
+<a
+    class="btn primary"
+    href="activity.html"
+>
+
+🎯 ไปทำกิจกรรม →
+
+</a>
+
+
+<a
+    class="btn secondary"
+    href="pretest.html"
+>
+
+← กลับไปแบบทดสอบก่อนเรียน
+
+</a>
+
+
+</div>
+
+
+</div>
+
+</main>
+
+
+
+<!-- =====================================================
+     IMAGE MODAL
+===================================================== -->
+
+<div
+    class="modal"
+    id="imageModal"
+    onclick="closeOutside(event)"
+>
+
+
+<div class="modal-content">
+
+
+<!-- =================================================
+     CLOSE
+================================================= -->
+
+<button
+    class="modal-btn close-btn"
+    onclick="closeImage()"
+    title="ปิดภาพ"
+>
+
+×
+
+</button>
+
+
+
+<!-- =================================================
+     PREVIOUS
+================================================= -->
+
+<button
+    class="modal-btn prev-btn"
+    onclick="previousImage(event)"
+    title="สไลด์ก่อนหน้า"
+>
+
+‹
+
+</button>
+
+
+
+<!-- =================================================
+     IMAGE
+================================================= -->
+
+<img
+    id="modalImage"
+    class="modal-image"
+    src="สไลด์1.PNG"
+    alt="บทเรียนขนาดใหญ่"
+>
+
+
+
+<!-- =================================================
+     NEXT
+================================================= -->
+
+<button
+    class="modal-btn next-btn"
+    onclick="nextImage(event)"
+    title="สไลด์ถัดไป"
+>
+
+›
+
+</button>
+
+
+
+<!-- =================================================
+     ZOOM IN
+================================================= -->
+
+<button
+    class="modal-btn zoom-in"
+    onclick="zoomIn(event)"
+    title="ขยายภาพ"
+>
+
+＋
+
+</button>
+
+
+
+<!-- =================================================
+     ZOOM OUT
+================================================= -->
+
+<button
+    class="modal-btn zoom-out"
+    onclick="zoomOut(event)"
+    title="ลดขนาดภาพ"
+>
+
+−
+
+</button>
+
+
+
+<!-- =================================================
+     COUNTER
+================================================= -->
+
+<div
+    class="slide-counter"
+    id="slideCounter"
+>
+
+สไลด์ 1 / 5
+
+</div>
+
+
+</div>
+
+</div>
+
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer>
+
+<div>
+
+🛡️
+
+<strong>
+การใช้งานเทคโนโลยีสารสนเทศอย่างปลอดภัย
+</strong>
+
+</div>
+
+
+<div class="footer-sub">
+
+เว็บไซต์เพื่อการเรียนรู้และส่งเสริมทักษะ
+การใช้เทคโนโลยีอย่างปลอดภัย
+
+</div>
+
+
+<div class="footer-sub">
+
+© 2026 เว็บไซต์การใช้งานเทคโนโลยีสารสนเทศอย่างปลอดภัย
+
+</div>
+
+</footer>
+
+
+
+<!-- =====================================================
+     JAVASCRIPT
+===================================================== -->
+
+<script>
+
+/* =====================================================
+   รายการสไลด์
+===================================================== */
+
+const slides = [
+
+    "สไลด์1.PNG",
+
+    "สไลด์2.PNG",
+
+    "สไลด์3.PNG",
+
+    "สไลด์4.PNG",
+
+    "สไลด์5.PNG"
+
+];
+
+
+/* =====================================================
+   ตัวแปร
+===================================================== */
+
+let currentSlide = 0;
+
+let scale = 1;
+
+
+/* =====================================================
+   เปิดภาพ
+===================================================== */
+
+function openImage(index){
+
+    currentSlide = index;
+
+    scale = 1;
+
+    const modal =
+        document.getElementById(
+            "imageModal"
+        );
+
+    const image =
+        document.getElementById(
+            "modalImage"
+        );
+
+    image.src =
+        slides[currentSlide];
+
+    image.style.transform =
+        "scale(1)";
+
+    updateCounter();
+
+    modal.classList.add(
+        "show"
+    );
+
+    document.body.style.overflow =
+        "hidden";
+}
+
+
+/* =====================================================
+   ปิดภาพ
+===================================================== */
+
+function closeImage(){
+
+    const modal =
+        document.getElementById(
+            "imageModal"
+        );
+
+    modal.classList.remove(
+        "show"
+    );
+
+    document.body.style.overflow =
+        "";
+
+}
+
+
+/* =====================================================
+   คลิกพื้นหลังเพื่อปิด
+===================================================== */
+
+function closeOutside(event){
+
+    if(
+        event.target.id ===
+        "imageModal"
+    ){
+
+        closeImage();
+
+    }
+
+}
+
+
+/* =====================================================
+   สไลด์ก่อนหน้า
+===================================================== */
+
+function previousImage(event){
+
+    event.stopPropagation();
+
+    currentSlide--;
+
+    if(currentSlide < 0){
+
+        currentSlide =
+            slides.length - 1;
+
+    }
+
+    showCurrentSlide();
+
+}
+
+
+/* =====================================================
+   สไลด์ถัดไป
+===================================================== */
+
+function nextImage(event){
+
+    event.stopPropagation();
+
+    currentSlide++;
+
+    if(
+        currentSlide >=
+        slides.length
+    ){
+
+        currentSlide = 0;
+
+    }
+
+    showCurrentSlide();
+
+}
+
+
+/* =====================================================
+   แสดงสไลด์ปัจจุบัน
+===================================================== */
+
+function showCurrentSlide(){
+
+    const image =
+        document.getElementById(
+            "modalImage"
+        );
+
+    scale = 1;
+
+    image.src =
+        slides[currentSlide];
+
+    image.style.transform =
+        "scale(1)";
+
+    updateCounter();
+
+}
+
+
+/* =====================================================
+   ตัวนับสไลด์
+===================================================== */
+
+function updateCounter(){
+
+    document.getElementById(
+        "slideCounter"
+    ).textContent =
+        "สไลด์ " +
+        (currentSlide + 1) +
+        " / 5";
+
+}
+
+
+/* =====================================================
+   ขยายภาพ
+===================================================== */
+
+function zoomIn(event){
+
+    event.stopPropagation();
+
+    scale += 0.2;
+
+    if(scale > 3){
+
+        scale = 3;
+
+    }
+
+    document
+        .getElementById(
+            "modalImage"
+        )
+        .style.transform =
+        "scale(" +
+        scale +
+        ")";
+
+}
+
+
+/* =====================================================
+   ลดภาพ
+===================================================== */
+
+function zoomOut(event){
+
+    event.stopPropagation();
+
+    scale -= 0.2;
+
+    if(scale < 0.5){
+
+        scale = 0.5;
+
+    }
+
+    document
+        .getElementById(
+            "modalImage"
+        )
+        .style.transform =
+        "scale(" +
+        scale +
+        ")";
+
+}
+
+
+/* =====================================================
+   แป้นพิมพ์
+===================================================== */
+
+document.addEventListener(
+    "keydown",
+    function(event){
+
+        const modal =
+            document.getElementById(
+                "imageModal"
+            );
+
+
+        /* ESC */
+
+        if(
+            event.key ===
+            "Escape"
+        ){
+
+            closeImage();
+
+        }
+
+
+        /* ลูกศรซ้าย */
+
+        if(
+            event.key ===
+            "ArrowLeft" &&
+            modal.classList.contains("show")
+        ){
+
+            previousImage(event);
+
+        }
+
+
+        /* ลูกศรขวา */
+
+        if(
+            event.key ===
+            "ArrowRight" &&
+            modal.classList.contains("show")
+        ){
+
+            nextImage(event);
+
+        }
+
+    }
+);
+
+</script>
+
+
+</body>
+
+</html>

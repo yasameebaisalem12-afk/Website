@@ -1,0 +1,1475 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
+
+<title>
+คู่มือการใช้งาน | การใช้งานเทคโนโลยีสารสนเทศอย่างปลอดภัย
+</title>
+
+
+<style>
+
+/* =====================================================
+   RESET
+===================================================== */
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+
+/* =====================================================
+   BODY
+===================================================== */
+
+body{
+
+    font-family:
+        Tahoma,
+        Arial,
+        sans-serif;
+
+    color:#26364d;
+
+    line-height:1.75;
+
+    min-height:100vh;
+
+    /* ================================================
+       รูป1.PNG เป็นพื้นหลังเว็บไซต์
+    ================================================ */
+
+    background-image:
+
+        linear-gradient(
+            rgba(237,247,255,.78),
+            rgba(230,242,255,.78)
+        ),
+
+        url("รูป1.PNG");
+
+    background-size:cover;
+
+    background-position:center center;
+
+    background-attachment:fixed;
+
+    background-repeat:no-repeat;
+}
+
+
+/* =====================================================
+   CONTAINER
+===================================================== */
+
+.container{
+
+    width:min(1250px,94%);
+
+    margin:auto;
+}
+
+
+/* =====================================================
+   HEADER
+===================================================== */
+
+header{
+
+    position:sticky;
+
+    top:0;
+
+    z-index:1000;
+
+    background:
+        rgba(255,255,255,.88);
+
+    backdrop-filter:blur(18px);
+
+    -webkit-backdrop-filter:blur(18px);
+
+    border-bottom:
+        1px solid
+        rgba(255,255,255,.9);
+
+    box-shadow:
+        0 5px 25px
+        rgba(30,70,120,.12);
+}
+
+
+.top{
+
+    min-height:76px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    gap:20px;
+
+    flex-wrap:wrap;
+}
+
+
+/* =====================================================
+   LOGO
+===================================================== */
+
+.logo{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    color:#1767b5;
+
+    text-decoration:none;
+
+    font-size:19px;
+
+    font-weight:bold;
+
+    white-space:nowrap;
+}
+
+
+.logo-icon{
+
+    width:42px;
+
+    height:42px;
+
+    display:grid;
+
+    place-items:center;
+
+    border-radius:13px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #287bd0,
+            #65b9f1
+        );
+
+    box-shadow:
+        0 7px 18px
+        rgba(35,120,212,.22);
+
+    font-size:22px;
+}
+
+
+/* =====================================================
+   NAVIGATION
+===================================================== */
+
+nav{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:flex-end;
+
+    gap:4px;
+
+    margin-left:auto;
+
+    flex-wrap:wrap;
+}
+
+
+nav a{
+
+    padding:9px 12px;
+
+    border-radius:11px;
+
+    color:#52627a;
+
+    text-decoration:none;
+
+    font-size:13px;
+
+    transition:.25s;
+}
+
+
+nav a:hover{
+
+    color:#1768b8;
+
+    background:#eaf5ff;
+}
+
+
+nav a.active{
+
+    color:white;
+
+    background:
+        linear-gradient(
+            135deg,
+            #176ac1,
+            #4a9de3
+        );
+
+    box-shadow:
+        0 5px 15px
+        rgba(35,120,212,.22);
+}
+
+
+/* =====================================================
+   MAIN
+===================================================== */
+
+.page{
+
+    min-height:82vh;
+
+    padding:
+        60px
+        0
+        90px;
+}
+
+
+/* =====================================================
+   PAGE TITLE
+===================================================== */
+
+.page-title{
+
+    text-align:center;
+
+    margin-bottom:32px;
+}
+
+
+.badge{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:6px;
+
+    padding:
+        7px
+        17px;
+
+    border-radius:50px;
+
+    color:#1767b5;
+
+    background:
+        rgba(255,255,255,.82);
+
+    border:
+        1px solid
+        rgba(255,255,255,.95);
+
+    box-shadow:
+        0 5px 18px
+        rgba(31,88,140,.08);
+
+    font-size:14px;
+
+    font-weight:bold;
+}
+
+
+.page-title h1{
+
+    margin:
+        17px
+        0
+        8px;
+
+    color:#173d6d;
+
+    font-size:
+        clamp(34px,5vw,50px);
+
+    line-height:1.2;
+}
+
+
+.page-title p{
+
+    color:#667b91;
+
+    font-size:16px;
+}
+
+
+/* =====================================================
+   GUIDE CONTAINER
+===================================================== */
+
+.guide-container{
+
+    width:100%;
+
+    margin:auto;
+
+    padding:38px;
+
+    border-radius:30px;
+
+    background:
+        rgba(255,255,255,.80);
+
+    border:
+        1px solid
+        rgba(255,255,255,.95);
+
+    backdrop-filter:blur(18px);
+
+    -webkit-backdrop-filter:blur(18px);
+
+    box-shadow:
+        0 20px 55px
+        rgba(31,70,110,.13);
+}
+
+
+/* =====================================================
+   INTRO
+===================================================== */
+
+.intro{
+
+    text-align:center;
+
+    max-width:800px;
+
+    margin:
+        0
+        auto
+        30px;
+}
+
+
+.intro-icon{
+
+    width:65px;
+
+    height:65px;
+
+    margin:
+        0
+        auto
+        13px;
+
+    display:grid;
+
+    place-items:center;
+
+    border-radius:19px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #e2f3ff,
+            #ffffff
+        );
+
+    box-shadow:
+        0 8px 22px
+        rgba(37,110,170,.12);
+
+    font-size:33px;
+}
+
+
+.intro h2{
+
+    color:#205c98;
+
+    font-size:27px;
+
+    margin-bottom:6px;
+}
+
+
+.intro p{
+
+    color:#657a90;
+
+    font-size:15px;
+}
+
+
+/* =====================================================
+   LARGE GUIDE IMAGE
+===================================================== */
+
+.guide-image-box{
+
+    position:relative;
+
+    width:100%;
+
+    margin:0 auto;
+
+    padding:10px;
+
+    border-radius:24px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #ffffff,
+            #eaf6ff
+        );
+
+    border:
+        1px solid
+        #d8eaf7;
+
+    box-shadow:
+        0 18px 45px
+        rgba(36,91,137,.15);
+
+    cursor:zoom-in;
+}
+
+
+.guide-image{
+
+    display:block;
+
+    width:100%;
+
+    height:auto;
+
+    max-width:100%;
+
+    max-height:none;
+
+    object-fit:contain;
+
+    border-radius:17px;
+
+    transition:.3s;
+}
+
+
+.guide-image:hover{
+
+    transform:scale(1.01);
+}
+
+
+/* =====================================================
+   IMAGE HINT
+===================================================== */
+
+.image-hint{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:8px;
+
+    margin-top:15px;
+
+    color:#52718e;
+
+    font-size:14px;
+
+    text-align:center;
+}
+
+
+/* =====================================================
+   NOTICE
+===================================================== */
+
+.notice{
+
+    margin-top:28px;
+
+    padding:
+        18px
+        20px;
+
+    border-left:
+        5px solid
+        #3476cf;
+
+    border-radius:14px;
+
+    background:
+        rgba(237,247,255,.85);
+
+    color:#566d84;
+
+    font-size:14px;
+}
+
+
+.notice strong{
+
+    color:#245d9f;
+}
+
+
+/* =====================================================
+   BUTTONS
+===================================================== */
+
+.actions{
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:12px;
+
+    flex-wrap:wrap;
+
+    margin-top:30px;
+}
+
+
+.btn{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:7px;
+
+    min-height:47px;
+
+    padding:
+        12px
+        21px;
+
+    border-radius:13px;
+
+    text-decoration:none;
+
+    font-weight:bold;
+
+    transition:.25s;
+}
+
+
+.btn:hover{
+
+    transform:translateY(-3px);
+}
+
+
+.primary{
+
+    color:white;
+
+    background:
+        linear-gradient(
+            135deg,
+            #286ac7,
+            #4b9ee5
+        );
+
+    box-shadow:
+        0 9px 22px
+        rgba(40,106,199,.23);
+}
+
+
+.secondary{
+
+    color:#286ac7;
+
+    background:
+        rgba(255,255,255,.92);
+
+    border:
+        1px solid
+        #bdd2eb;
+}
+
+
+/* =====================================================
+   IMAGE MODAL
+===================================================== */
+
+.modal{
+
+    position:fixed;
+
+    inset:0;
+
+    z-index:3000;
+
+    display:none;
+
+    align-items:center;
+
+    justify-content:center;
+
+    padding:15px;
+
+    background:
+        rgba(7,25,45,.90);
+
+    backdrop-filter:blur(9px);
+}
+
+
+.modal.show{
+
+    display:flex;
+}
+
+
+/* =====================================================
+   MODAL CONTENT
+===================================================== */
+
+.modal-content{
+
+    position:relative;
+
+    width:
+        min(1200px,97vw);
+
+    height:
+        min(92vh,900px);
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    overflow:hidden;
+
+    border-radius:22px;
+
+    background:
+        rgba(255,255,255,.07);
+
+    border:
+        1px solid
+        rgba(255,255,255,.18);
+}
+
+
+/* =====================================================
+   MODAL IMAGE
+===================================================== */
+
+.modal-image{
+
+    max-width:94%;
+
+    max-height:84%;
+
+    object-fit:contain;
+
+    border-radius:12px;
+
+    box-shadow:
+        0 20px 65px
+        rgba(0,0,0,.4);
+
+    transition:
+        transform .25s ease;
+
+    cursor:grab;
+}
+
+
+/* =====================================================
+   MODAL BUTTONS
+===================================================== */
+
+.modal-btn{
+
+    position:absolute;
+
+    width:48px;
+
+    height:48px;
+
+    display:grid;
+
+    place-items:center;
+
+    border:0;
+
+    border-radius:50%;
+
+    color:white;
+
+    background:
+        rgba(255,255,255,.18);
+
+    backdrop-filter:blur(8px);
+
+    cursor:pointer;
+
+    font-size:23px;
+
+    transition:.2s;
+
+    z-index:5;
+}
+
+
+.modal-btn:hover{
+
+    background:
+        rgba(255,255,255,.32);
+
+    transform:scale(1.08);
+}
+
+
+.close-btn{
+
+    top:18px;
+
+    right:18px;
+
+    font-size:28px;
+}
+
+
+.zoom-in{
+
+    bottom:18px;
+
+    right:78px;
+}
+
+
+.zoom-out{
+
+    bottom:18px;
+
+    right:20px;
+}
+
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+footer{
+
+    padding:
+        27px
+        15px;
+
+    text-align:center;
+
+    color:#dceeff;
+
+    background:
+        linear-gradient(
+            135deg,
+            #123e69,
+            #195c91
+        );
+}
+
+
+.footer-sub{
+
+    margin-top:4px;
+
+    color:#b9d5ec;
+
+    font-size:12px;
+}
+
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+
+@media(max-width:900px){
+
+    .top{
+
+        padding:10px 0;
+    }
+
+
+    nav{
+
+        width:100%;
+
+        justify-content:center;
+    }
+
+
+    .guide-container{
+
+        padding:
+            28px
+            20px;
+    }
+
+}
+
+
+@media(max-width:650px){
+
+    .page{
+
+        padding:
+            45px
+            0
+            65px;
+    }
+
+
+    .page-title h1{
+
+        font-size:32px;
+    }
+
+
+    .guide-container{
+
+        padding:
+            22px
+            13px;
+
+        border-radius:22px;
+    }
+
+
+    .guide-image-box{
+
+        padding:6px;
+
+        border-radius:18px;
+    }
+
+
+    .image-hint{
+
+        font-size:12px;
+
+        padding:0 8px;
+    }
+
+
+    .modal{
+
+        padding:7px;
+    }
+
+
+    .modal-content{
+
+        width:100%;
+
+        height:90vh;
+    }
+
+
+    .modal-image{
+
+        max-width:97%;
+
+        max-height:76%;
+    }
+
+
+    .modal-btn{
+
+        width:42px;
+
+        height:42px;
+    }
+
+}
+
+
+@media(max-width:450px){
+
+    .logo{
+
+        width:100%;
+
+        justify-content:center;
+
+        font-size:16px;
+    }
+
+
+    nav a{
+
+        font-size:11px;
+
+        padding:
+            6px
+            7px;
+    }
+
+
+    .intro h2{
+
+        font-size:23px;
+    }
+
+
+    .actions{
+
+        flex-direction:column;
+    }
+
+
+    .btn{
+
+        width:100%;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     HEADER
+===================================================== -->
+
+<header>
+
+<div class="container top">
+
+
+<a class="logo"
+   href="index.html">
+
+<span class="logo-icon">
+🛡️
+</span>
+
+<span>
+เทคโนโลยีอย่างปลอดภัย
+</span>
+
+</a>
+
+
+<nav>
+
+<a href="index.html">
+หน้าหลัก
+</a>
+
+<a class="active"
+   href="guide.html">
+คู่มือ
+</a>
+
+<a href="pretest.html">
+ก่อนเรียน
+</a>
+
+<a href="lesson.html">
+บทเรียน
+</a>
+
+<a href="activity.html">
+กิจกรรม
+</a>
+
+<a href="summary.html">
+สรุป
+</a>
+
+<a href="posttest.html">
+หลังเรียน
+</a>
+
+<a href="author.html">
+ผู้จัดทำ
+</a>
+
+</nav>
+
+</div>
+
+</header>
+
+
+
+<!-- =====================================================
+     MAIN
+===================================================== -->
+
+<main class="container page">
+
+
+<!-- =====================================================
+     PAGE TITLE
+===================================================== -->
+
+<div class="page-title">
+
+<span class="badge">
+📖 คู่มือการใช้งาน
+</span>
+
+
+<h1>
+วิธีใช้งานเว็บไซต์
+</h1>
+
+
+<p>
+ทำความรู้จักเว็บไซต์และขั้นตอนการเรียนรู้
+</p>
+
+</div>
+
+
+
+<!-- =====================================================
+     GUIDE CONTENT
+===================================================== -->
+
+<div class="guide-container">
+
+
+<!-- =====================================================
+     INTRO
+===================================================== -->
+
+<div class="intro">
+
+<div class="intro-icon">
+📚
+</div>
+
+
+<h2>
+เรียนรู้ผ่านเว็บไซต์อย่างไร?
+</h2>
+
+
+<p>
+ศึกษาภาพคู่มือด้านล่างเพื่อทำความเข้าใจ
+เมนูและขั้นตอนการเรียนรู้ของเว็บไซต์
+</p>
+
+</div>
+
+
+
+<!-- =====================================================
+     GUIDE IMAGE
+===================================================== -->
+
+<div
+    class="guide-image-box"
+    onclick="openImage()"
+>
+
+<img
+    src="รูป2.PNG"
+    alt="ภาพคู่มือการใช้งานเว็บไซต์"
+    class="guide-image"
+>
+
+</div>
+
+
+<!-- =====================================================
+     IMAGE HINT
+===================================================== -->
+
+<div class="image-hint">
+
+<span>🔍</span>
+
+<span>
+คลิกที่ภาพเพื่อดูขนาดใหญ่
+และใช้ปุ่ม + / − เพื่อขยายหรือลดภาพ
+</span>
+
+</div>
+
+
+
+<!-- =====================================================
+     NOTICE
+===================================================== -->
+
+<div class="notice">
+
+<strong>
+💡 คำแนะนำในการเรียนรู้
+</strong>
+
+<br>
+
+ควรศึกษาเนื้อหาและทำกิจกรรมตามลำดับ
+เพื่อให้เข้าใจเนื้อหาเกี่ยวกับการใช้งานเทคโนโลยีสารสนเทศ
+อย่างปลอดภัยได้อย่างครบถ้วน
+
+</div>
+
+
+
+<!-- =====================================================
+     BUTTONS
+===================================================== -->
+
+<div class="actions">
+
+
+<a
+    class="btn primary"
+    href="pretest.html"
+>
+
+📝 เริ่มทำแบบทดสอบก่อนเรียน →
+
+</a>
+
+
+<a
+    class="btn secondary"
+    href="index.html"
+>
+
+← กลับหน้าหลัก
+
+</a>
+
+
+</div>
+
+
+</div>
+
+</main>
+
+
+
+<!-- =====================================================
+     IMAGE MODAL
+===================================================== -->
+
+<div
+    class="modal"
+    id="imageModal"
+    onclick="closeOutside(event)"
+>
+
+
+<div class="modal-content">
+
+
+<!-- CLOSE BUTTON -->
+
+<button
+    class="modal-btn close-btn"
+    onclick="closeImage()"
+    title="ปิดภาพ"
+>
+
+×
+
+</button>
+
+
+
+<!-- LARGE IMAGE -->
+
+<img
+    id="modalImage"
+    class="modal-image"
+    src="รูป2.PNG"
+    alt="ภาพคู่มือการใช้งานขนาดใหญ่"
+>
+
+
+
+<!-- ZOOM IN -->
+
+<button
+    class="modal-btn zoom-in"
+    onclick="zoomIn(event)"
+    title="ขยายภาพ"
+>
+
+＋
+
+</button>
+
+
+
+<!-- ZOOM OUT -->
+
+<button
+    class="modal-btn zoom-out"
+    onclick="zoomOut(event)"
+    title="ลดขนาดภาพ"
+>
+
+−
+
+</button>
+
+
+</div>
+
+</div>
+
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer>
+
+
+<div>
+
+🛡️
+
+<strong>
+การใช้งานเทคโนโลยีสารสนเทศอย่างปลอดภัย
+</strong>
+
+</div>
+
+
+<div class="footer-sub">
+
+เว็บไซต์เพื่อการเรียนรู้และส่งเสริมทักษะ
+การใช้เทคโนโลยีอย่างปลอดภัย
+
+</div>
+
+
+<div class="footer-sub">
+
+© 2026 เว็บไซต์การใช้งานเทคโนโลยีสารสนเทศอย่างปลอดภัย
+
+</div>
+
+
+</footer>
+
+
+
+<!-- =====================================================
+     JAVASCRIPT
+===================================================== -->
+
+<script>
+
+/* =====================================================
+   ตัวแปรควบคุมขนาดรูป
+===================================================== */
+
+let scale = 1;
+
+
+/* =====================================================
+   เปิดภาพ
+===================================================== */
+
+function openImage(){
+
+    const modal =
+        document.getElementById(
+            "imageModal"
+        );
+
+    const image =
+        document.getElementById(
+            "modalImage"
+        );
+
+
+    scale = 1;
+
+
+    image.style.transform =
+        "scale(1)";
+
+
+    modal.classList.add("show");
+
+
+    document.body.style.overflow =
+        "hidden";
+
+}
+
+
+/* =====================================================
+   ปิดภาพ
+===================================================== */
+
+function closeImage(){
+
+    const modal =
+        document.getElementById(
+            "imageModal"
+        );
+
+
+    modal.classList.remove(
+        "show"
+    );
+
+
+    document.body.style.overflow =
+        "";
+
+}
+
+
+/* =====================================================
+   คลิกด้านนอกเพื่อปิด
+===================================================== */
+
+function closeOutside(event){
+
+    if(
+        event.target.id ===
+        "imageModal"
+    ){
+
+        closeImage();
+
+    }
+
+}
+
+
+/* =====================================================
+   ขยายภาพ
+===================================================== */
+
+function zoomIn(event){
+
+    event.stopPropagation();
+
+
+    scale += 0.2;
+
+
+    if(scale > 3){
+
+        scale = 3;
+
+    }
+
+
+    document
+        .getElementById(
+            "modalImage"
+        )
+        .style.transform =
+        "scale(" +
+        scale +
+        ")";
+
+}
+
+
+/* =====================================================
+   ลดขนาดภาพ
+===================================================== */
+
+function zoomOut(event){
+
+    event.stopPropagation();
+
+
+    scale -= 0.2;
+
+
+    if(scale < 0.5){
+
+        scale = 0.5;
+
+    }
+
+
+    document
+        .getElementById(
+            "modalImage"
+        )
+        .style.transform =
+        "scale(" +
+        scale +
+        ")";
+
+}
+
+
+/* =====================================================
+   กด ESC เพื่อปิดภาพ
+===================================================== */
+
+document.addEventListener(
+    "keydown",
+    function(event){
+
+        if(
+            event.key ===
+            "Escape"
+        ){
+
+            closeImage();
+
+        }
+
+    }
+);
+
+</script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>แบบทดสอบหลังเรียน | การใช้งานเทคโนโลยีสารสนเทศอย่างปลอดภัย</title>
+
+<style>
+
+*{
+  box-sizing:border-box;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  margin:0;
+  font-family:Tahoma,Arial,sans-serif;
+  background:#f4f8ff;
+  color:#26364d;
+  line-height:1.75;
+}
+
+header{
+  background:#fff;
+  box-shadow:0 3px 15px rgba(30,70,120,.12);
+  position:sticky;
+  top:0;
+  z-index:99;
+}
+
+.container{
+  width:min(1120px,92%);
+  margin:auto;
+}
+
+.top{
+  min-height:70px;
+  display:flex;
+  align-items:center;
+  gap:20px;
+  flex-wrap:wrap;
+}
+
+.logo{
+  font-size:20px;
+  font-weight:bold;
+  color:#245fa8;
+  text-decoration:none;
+  white-space:nowrap;
+}
+
+nav{
+  display:flex;
+  gap:5px;
+  margin-left:auto;
+  flex-wrap:wrap;
+  justify-content:flex-end;
+}
+
+nav a{
+  font-size:14px;
+  text-decoration:none;
+  color:#52627a;
+  padding:8px 10px;
+  border-radius:9px;
+}
+
+nav a:hover,
+nav a.active{
+  background:#e9f2ff;
+  color:#1e62b4;
+}
+
+.hero{
+  background:linear-gradient(135deg,#dcecff,#eefaff,#f2edff);
+  padding:80px 0;
+}
+
+.hero-grid{
+  display:grid;
+  grid-template-columns:1.3fr .7fr;
+  gap:45px;
+  align-items:center;
+}
+
+.badge{
+  display:inline-block;
+  background:#e5efff;
+  color:#2463b2;
+  border-radius:30px;
+  padding:5px 15px;
+  font-size:14px;
+}
+
+h1{
+  font-size:clamp(30px,5vw,52px);
+  line-height:1.2;
+  color:#173d6d;
+  margin:15px 0;
+}
+
+h2{
+  color:#245d9f;
+}
+
+.hero p{
+  font-size:18px;
+  color:#596b82;
+}
+
+.hero-card,
+.box,
+.card,
+.lesson-card,
+.quiz-box,
+.activity-card,
+.author-card{
+  background:#fff;
+  border-radius:20px;
+  box-shadow:0 8px 28px rgba(31,70,110,.10);
+}
+
+.hero-card{
+  text-align:center;
+  padding:35px;
+}
+
+.shield{
+  font-size:80px;
+}
+
+.btn{
+  display:inline-block;
+  padding:11px 19px;
+  border-radius:11px;
+  text-decoration:none;
+  font-weight:bold;
+  border:0;
+  cursor:pointer;
+}
+
+.primary{
+  background:#286ac7;
+  color:#fff;
+}
+
+.secondary{
+  background:#fff;
+  color:#286ac7;
+  border:1px solid #bdd2eb;
+}
+
+.actions{
+  display:flex;
+  gap:12px;
+  flex-wrap:wrap;
+  margin-top:25px;
+}
+
+.page{
+  padding:55px 0 80px;
+  min-height:75vh;
+}
+
+.page-title{
+  text-align:center;
+  margin-bottom:35px;
+}
+
+.page-title h1{
+  font-size:40px;
+}
+
+.page-title p{
+  color:#687990;
+}
+
+.cards{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:18px;
+}
+
+.card{
+  padding:24px;
+  text-decoration:none;
+  color:inherit;
+  border:1px solid #e4ebf4;
+}
+
+.card:hover{
+  transform:translateY(-3px);
+}
+
+.icon{
+  font-size:35px;
+}
+
+.card h3{
+  color:#245d9f;
+  margin:8px 0;
+}
+
+.box{
+  padding:30px;
+}
+
+.steps li{
+  margin:12px 0;
+}
+
+.lesson-list{
+  display:grid;
+  gap:18px;
+}
+
+.lesson-card{
+  display:grid;
+  grid-template-columns:80px 1fr;
+  gap:22px;
+  padding:25px;
+}
+
+.lesson-num{
+  background:linear-gradient(145deg,#3275cf,#65a4f1);
+  color:white;
+  border-radius:17px;
+  height:75px;
+  display:grid;
+  place-items:center;
+  font-size:27px;
+  font-weight:bold;
+}
+
+.activity-card{
+  padding:25px;
+  margin-bottom:20px;
+}
+
+.choice,
+.quiz-option{
+  display:block;
+  border:1px solid #dbe4ef;
+  border-radius:10px;
+  padding:10px 13px;
+  margin:8px 0;
+  cursor:pointer;
+}
+
+.choice:hover,
+.quiz-option:hover{
+  background:#f1f6fd;
+}
+
+.result{
+  background:#eaf7ee;
+  border-radius:12px;
+  padding:15px;
+  margin-top:15px;
+}
+
+.summary-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:18px;
+}
+
+.summary-item{
+  background:#fff;
+  border-radius:18px;
+  padding:22px 22px 22px 70px;
+  position:relative;
+  box-shadow:0 7px 25px rgba(31,70,110,.08);
+}
+
+.summary-item span{
+  position:absolute;
+  left:20px;
+  top:20px;
+  background:#e8f1ff;
+  color:#286ac7;
+  width:36px;
+  height:36px;
+  border-radius:50%;
+  display:grid;
+  place-items:center;
+  font-weight:bold;
+}
+
+.quiz-box{
+  max-width:1000px;
+  margin:auto;
+  padding:15px;
+}
+
+/* ================================
+   iframe แบบทดสอบจาก Google Apps Script
+================================ */
+
+.test-frame-wrapper{
+  width:100%;
+  background:#fff;
+  border-radius:20px;
+  overflow:hidden;
+  box-shadow:0 8px 28px rgba(31,70,110,.10);
+  padding:0;
+}
+
+.test-frame{
+  display:block;
+  width:100%;
+  min-height:1200px;
+  height:1200px;
+  border:0;
+  background:#fff;
+}
+
+.notice{
+  background:#fff;
+  border-left:5px solid #3476cf;
+  padding:22px;
+  border-radius:14px;
+  margin-top:25px;
+}
+
+footer{
+  background:#173d6d;
+  color:#e4efff;
+  text-align:center;
+  padding:20px;
+}
+
+@media(max-width:900px){
+
+  .hero-grid{
+    grid-template-columns:1fr;
+  }
+
+  .cards{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  nav{
+    justify-content:flex-start;
+    margin-left:0;
+  }
+
+}
+
+@media(max-width:600px){
+
+  .cards,
+  .summary-grid{
+    grid-template-columns:1fr;
+  }
+
+  .lesson-card{
+    grid-template-columns:1fr;
+  }
+
+  .author-card{
+    flex-direction:column;
+    text-align:center;
+  }
+
+  .top{
+    padding:10px 0;
+  }
+
+  .page-title h1{
+    font-size:30px;
+  }
+
+  .quiz-box{
+    padding:5px;
+  }
+
+  .test-frame{
+    min-height:1400px;
+    height:1400px;
+  }
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+  <div class="container top">
+
+    <a class="logo" href="index.html">
+      🛡️ เทคโนโลยีอย่างปลอดภัย
+    </a>
+
+    <nav>
+
+      <a href="index.html">
+        หน้าหลัก
+      </a>
+
+      <a href="guide.html">
+        คู่มือการใช้งาน
+      </a>
+
+      <a href="pretest.html">
+        แบบทดสอบก่อนเรียน
+      </a>
+
+      <a href="lesson.html">
+        บทเรียน
+      </a>
+
+      <a href="activity.html">
+        กิจกรรม
+      </a>
+
+      <a href="summary.html">
+        สรุปบทเรียน
+      </a>
+
+      <a class="active" href="posttest.html">
+        แบบทดสอบหลังเรียน
+      </a>
+
+      <a href="author.html">
+        ผู้จัดทำ
+      </a>
+
+    </nav>
+
+  </div>
+
+</header>
+
+
+<main class="container page">
+
+  <div class="page-title">
+
+    <span class="badge">
+      แบบทดสอบ
+    </span>
+
+    <h1>
+      แบบทดสอบหลังเรียน
+    </h1>
+
+    <p>
+      กรุณากรอกข้อมูลผู้เข้าสอบก่อนเริ่มทำแบบทดสอบ
+    </p>
+
+  </div>
+
+
+  <!-- ======================================
+       GOOGLE APPS SCRIPT
+       แบบทดสอบหลังเรียน
+  ======================================= -->
+
+  <div class="test-frame-wrapper">
+
+    <iframe
+      class="test-frame"
+      src="https://script.google.com/macros/s/AKfycbx7A5YGe7x6l-EgVjkm01kQjz5vnB4dTafQCg_EetEhjLvZ4aMCLxHYX-9v22FAX2EL/exec"
+      title="แบบทดสอบหลังเรียน การใช้งานเทคโนโลยีสารสนเทศอย่างปลอดภัย"
+      loading="lazy"
+      allow="fullscreen"
+      referrerpolicy="strict-origin-when-cross-origin">
+    </iframe>
+
+  </div>
+
+
+  <div class="notice">
+
+    <strong>📌 คำแนะนำ</strong>
+
+    <br>
+
+    กรุณากรอกชื่อ - สกุล เลขที่ และชั้น
+    จากนั้นทำแบบทดสอบให้ครบทุกข้อก่อนกดส่งคำตอบ
+
+  </div>
+
+</main>
+
+
+<footer>
+
+  © 2026 เว็บไซต์การใช้งานเทคโนโลยีสารสนเทศอย่างปลอดภัย
+
+</footer>
+
+</body>
+
+</html>
